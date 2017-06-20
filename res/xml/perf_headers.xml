@@ -6,4 +6,9 @@
         android:title="@string/UP_settings_title"
         android:summary="@string/UP_settings_summary" />
 
+    <header
+        android:title="@string/About_settings_title"
+        android:fragment="com.ultra.manager.about.AboutFragment"
+        android:summary="@string/About_settings_summary" />
+
 </preference-headers>

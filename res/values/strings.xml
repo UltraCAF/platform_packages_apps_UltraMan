@@ -12,5 +12,23 @@
     <string name="UP_settings_summary">Tap to check For System Updates</string>
     <string name="UP_settings_category" translatable="false">Updates</string>
 
+    <!-- UP Settings Header item -->
+    <string name="About_settings_title">About Us</string>
+    <string name="About_settings_summary">Get information about Us</string>
+    <string name="About_settings_category" translatable="false">About us</string>
+
+    <!-- About Fragment -->
+    <string name="aosp_about_info_summary">UltraCAF is an AOSP based rom which provides stock CAF AOSP with some features along with the Substratum theme engine. Being based on AOSP CAF.</string>
+    <string name="dev_info">About UltraCAF</string>
+    <string name="leads">Team</string>
+    <string name="github">Github</string>
+    <string name="github_description">View our source code</string>
+    <string name="maintainers">Maintainers</string>
+    <string name="dev_1">Ahmed Hady</string>
+    <string name="dev1_description"> Rom, Kernel Developer, Osprey,Merlin[WIP] Maintainer</string>
+    <string name="dev_2">Yousef Alsageer &#40;YSHALSAGER&#41;</string>
+    <string name="dev2_description">Developer, Nokia XL Maintainer</string>
+    <string name="dev_3">Sumit &#40;androidlover5842&#41;</string>
+    <string name="dev3_description">msm8916, msm7x27a Maintainer</string>
 </resources>
 

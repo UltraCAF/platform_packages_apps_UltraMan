@@ -1,0 +1,58 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/About_settings_title">
+
+    <PreferenceCategory
+        android:key="about"
+        android:title="@string/dev_info" >
+
+        <PreferenceScreen
+            android:summary="@string/aosp_about_info_summary" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://ultradevs.blogspot.com" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:title="@string/github"
+            android:summary="@string/github_description"
+            android:icon="@drawable/ic_github" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/UltraCAF" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="leads"
+        android:title="@string/leads" >
+
+        <PreferenceScreen
+            android:title="@string/dev_1"
+            android:summary="@string/dev1_description"
+            android:icon="@drawable/ic_devs" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://forum.xda-developers.com/member.php?u=6887229" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:title="@string/dev_2"
+            android:summary="@string/dev2_description"
+            android:icon="@drawable/ic_devs" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://forum.xda-developers.com/member.php?u=6084385" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:title="@string/dev_3"
+            android:summary="@string/dev3_description"
+            android:icon="@drawable/ic_devs" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://plus.google.com/+androidlover5842" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

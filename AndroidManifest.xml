@@ -34,6 +34,23 @@
                 android:resource="@drawable/ic_android" />
         </activity>
 
+        <activity-alias
+            android:name=".about.AboutFragment"
+            android:label="@string/About_settings_title"
+            android:targetActivity=".ManagerMain">
+            <intent-filter android:priority="2">
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+                <action android:name="com.ultra.about.AboutFragment" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.personal" />
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_devs" />
+        </activity-alias>
+
     </application>
 </manifest>
 
