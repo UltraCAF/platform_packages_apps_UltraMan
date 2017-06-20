@@ -3,6 +3,7 @@ package com.ultra.manager.utils;
 
 import android.content.Context;
 import android.preference.SwitchPreference;
+import android.provider.Settings;
 import android.util.AttributeSet;
 
 public class UltraGlobalSettingSwitchPreference extends SwitchPreference {
@@ -25,6 +26,7 @@ public class UltraGlobalSettingSwitchPreference extends SwitchPreference {
                 // It's already there, so the same as persisting
                 return true;
             }
+            Settings.Global.putInt(getContext().getContentResolver(), getKey(), value ? 1 : 0);
             return true;
         }
         return false;
@@ -35,12 +37,13 @@ public class UltraGlobalSettingSwitchPreference extends SwitchPreference {
         if (!shouldPersist()) {
             return defaultReturnValue;
         }
-        return true;
+        return Settings.Global.getInt(getContext().getContentResolver(),
+                getKey(), defaultReturnValue ? 1 : 0) != 0;
     }
 
     protected boolean isPersisted() {
         // Using getString instead of getInt so we can simply check for null
         // instead of catching an exception. (All values are stored as strings.)
-        return true;
+        return Settings.Global.getString(getContext().getContentResolver(), getKey()) != null;
     }
 }

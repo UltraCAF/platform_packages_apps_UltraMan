@@ -3,6 +3,7 @@ package com.ultra.manager.utils;
 
 import android.content.Context;
 import android.preference.SwitchPreference;
+import android.provider.Settings;
 import android.util.AttributeSet;
 
 public class UltraSecureSettingSwitchPreference extends SwitchPreference {
@@ -25,6 +26,7 @@ public class UltraSecureSettingSwitchPreference extends SwitchPreference {
                 // It's already there, so the same as persisting
                 return true;
             }
+            Settings.Secure.putInt(getContext().getContentResolver(), getKey(), value ? 1 : 0);
             return true;
         }
         return false;
@@ -35,6 +37,11 @@ public class UltraSecureSettingSwitchPreference extends SwitchPreference {
         if (!shouldPersist()) {
             return defaultReturnValue;
         }
-        return true;
+        return Settings.Secure.getInt(getContext().getContentResolver(),
+                getKey(), defaultReturnValue ? 1 : 0) != 0;
+    }
+
+    protected boolean isPersisted() {
+        return Settings.Secure.getString(getContext().getContentResolver(), getKey()) != null;
     }
 }
