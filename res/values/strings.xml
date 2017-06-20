@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_title">Ultra Manager Settings</string>
     <string name="loading">Loading\u2026</string>
     <string name="dlg_ok">OK</string>
     <string name="cancel">Cancel</string>
 
-    <!-- Test Settings Header item -->
-    <string name="test_settings_title">Test Header</string>
-    <string name="test_settings_category" translatable="false">Test Category</string>
+    <!-- UP Settings Header item -->
+    <string name="UP_settings_title">System Updates</string>
+    <string name="UP_settings_summary">Tap to check For System Updates</string>
+    <string name="UP_settings_category" translatable="false">Updates</string>
 
 </resources>
 
