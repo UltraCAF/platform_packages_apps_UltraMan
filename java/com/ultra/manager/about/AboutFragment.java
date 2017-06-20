@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ultra.manager.R;
-import com.ultra.manager.SettingsPreferenceFragment;
+import com.ultra.manager.utils.SettingsPreferenceFragment;
 
 public class AboutFragment extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {

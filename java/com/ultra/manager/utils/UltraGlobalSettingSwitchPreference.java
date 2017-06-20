@@ -1,20 +1,20 @@
 
-package com.ultra.manager;
+package com.ultra.manager.utils;
 
 import android.content.Context;
 import android.preference.SwitchPreference;
 import android.util.AttributeSet;
 
-public class UltraSecureSettingSwitchPreference extends SwitchPreference {
-    public UltraSecureSettingSwitchPreference(Context context, AttributeSet attrs, int defStyle) {
+public class UltraGlobalSettingSwitchPreference extends SwitchPreference {
+    public UltraGlobalSettingSwitchPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public UltraSecureSettingSwitchPreference(Context context, AttributeSet attrs) {
+    public UltraGlobalSettingSwitchPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public UltraSecureSettingSwitchPreference(Context context) {
+    public UltraGlobalSettingSwitchPreference(Context context) {
         super(context, null);
     }
 
@@ -35,6 +35,12 @@ public class UltraSecureSettingSwitchPreference extends SwitchPreference {
         if (!shouldPersist()) {
             return defaultReturnValue;
         }
+        return true;
+    }
+
+    protected boolean isPersisted() {
+        // Using getString instead of getInt so we can simply check for null
+        // instead of catching an exception. (All values are stored as strings.)
         return true;
     }
 }

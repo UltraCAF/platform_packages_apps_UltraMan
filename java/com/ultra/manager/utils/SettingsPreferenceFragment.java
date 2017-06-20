@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ultra.manager;
+package com.ultra.manager.utils;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
