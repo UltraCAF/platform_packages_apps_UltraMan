@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_title">Ultra Manager Settings</string>
+    <string name="loading">Loading\u2026</string>
+    <string name="dlg_ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Test Settings Header item -->
+    <string name="test_settings_title">Test Header</string>
+    <string name="test_settings_category" translatable="false">Test Category</string>
+
+</resources>
+
