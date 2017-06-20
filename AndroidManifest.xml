@@ -5,9 +5,15 @@
     android:versionCode="1"
     android:versionName="1.0">
 
-    <!--android:sharedUserId="android.uid.system"-->
-
     <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="24" />
+
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
 
     <application android:label="@string/app_title"
             android:icon="@mipmap/ic_launcher"
