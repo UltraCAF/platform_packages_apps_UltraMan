@@ -13,6 +13,6 @@ public class ManagerMain extends PreferenceActivity {
 
     @Override
     public boolean isValidFragment(String fragmentName) {
-        return fragmentName.startsWith("com.ultra.manager.manager");
+        return fragmentName.startsWith("com.ultra.manager");
     }
 }
