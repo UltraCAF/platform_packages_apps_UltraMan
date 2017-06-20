@@ -12,10 +12,24 @@
     <string name="UP_settings_summary">Tap to check For System Updates</string>
     <string name="UP_settings_category" translatable="false">Updates</string>
 
-    <!-- UP Settings Header item -->
+    <!-- About Settings Header item -->
     <string name="About_settings_title">About Us</string>
     <string name="About_settings_summary">Get information about Us</string>
     <string name="About_settings_category" translatable="false">About us</string>
+
+    <!-- Leds Options Settings Header item -->
+    <string name="leds_settings_title">Led Options</string>
+    <string name="leds_settings_summary">Manage your phone Battery/Notification Leds</string>
+
+    <string name="battery_settings_category">Battery Lights</string>
+    <string name="battery_settings_title">Battery Lights</string>
+    <string name="battery_settings_summary_on">Battery Light leds is ON</string>
+    <string name="battery_settings_summary_off">Battery Light leds is OFF</string>
+
+    <string name="notification_settings_category">Notification Lights</string>
+    <string name="notification_settings_title">Notification Lights</string>
+    <string name="notification_settings_summary_on">Notification Light leds is ON</string>
+    <string name="notification_settings_summary_off">Notification Light leds is OFF</string>
 
     <!-- About Fragment -->
     <string name="aosp_about_info_summary">UltraCAF is an AOSP based rom which provides stock CAF AOSP with some features along with the Substratum theme engine. Being based on AOSP CAF.</string>

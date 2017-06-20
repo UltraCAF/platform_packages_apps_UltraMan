@@ -11,4 +11,9 @@
         android:fragment="com.ultra.manager.about.AboutFragment"
         android:summary="@string/About_settings_summary" />
 
+    <header
+        android:title="@string/leds_settings_title"
+        android:summary="@string/leds_settings_summary"
+        android:fragment="com.ultra.manager.lights.LedFragment" />
+
 </preference-headers>
