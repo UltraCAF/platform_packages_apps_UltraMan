@@ -10,6 +10,8 @@
     <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="24" />
 
     <application android:label="@string/app_title"
+            android:icon="@mipmap/ic_launcher"
+            android:roundIcon="@mipmap/ic_launcher_round"
             android:theme="@style/Theme.Settings"
             android:hardwareAccelerated="true"
             android:supportsRtl="true"
@@ -18,7 +20,7 @@
 
         <activity
             android:name=".ManagerMain"
-            android:label="@string/test_settings_title">
+            android:label="@string/app_title">
             <intent-filter android:priority="1">
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
                 <action android:name="android.intent.action.MAIN" />
