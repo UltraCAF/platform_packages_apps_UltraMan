@@ -20,6 +20,14 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/UltraCAF" />
         </PreferenceScreen>
+
+        <!-- CAF Version  -->
+        <Preference android:key="caf_version"
+                android:enabled="false"
+                android:shouldDisableView="false"
+                android:title="@string/version_title"
+                android:summary="@string/version_default"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory

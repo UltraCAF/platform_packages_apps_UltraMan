@@ -44,5 +44,9 @@
     <string name="dev2_description">Developer, Nokia XL Maintainer</string>
     <string name="dev_3">Sumit &#40;androidlover5842&#41;</string>
     <string name="dev3_description">msm8916, msm7x27a Maintainer</string>
-</resources>
 
+    <!-- AOSP-CAF Version -->
+    <string name="version_title">CAF Version</string>
+    <string name="version_default">Unknown</string>
+    <string name="device_info_default">Unknown</string>
+</resources>
