@@ -3,6 +3,7 @@ package com.ultra.manager.lights;
 import android.content.Context;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.PreferenceGroup;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
@@ -21,6 +22,7 @@ public class LedFragment extends SettingsPreferenceFragment implements
     private SwitchPreference mBatLight;
     public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
+    private static final String KEY_NOTIFICATION_PULSE_CATE = "notification_pulse_category";
 
     private static final String TAG = "LightPerfs";
 
@@ -35,6 +37,7 @@ public class LedFragment extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.perf_lights);
         mBatLight = (SwitchPreference) getPreferenceScreen().findPreference(BATTERY_LIGHT_ENABLED);
         mNotificationPulse = (SwitchPreference) getPreferenceScreen().findPreference(KEY_NOTIFICATION_PULSE);
+        PreferenceGroup NotifGroup = (PreferenceGroup) findPreference(KEY_NOTIFICATION_PULSE_CATE);
 
         // Battery Lights Options
         try {
@@ -47,7 +50,10 @@ public class LedFragment extends SettingsPreferenceFragment implements
         // Pulsing Lights Options
         if (!getResources()
                 .getBoolean(com.android.internal.R.bool.config_intrusiveNotificationLed)) {
-             getPreferenceScreen().removePreference(mNotificationPulse);
+            if (NotifGroup != null) {
+               NotifGroup.removePreference(mNotificationPulse);
+               getPreferenceScreen().removePreference(NotifGroup);
+            }
         } else {
           try {
               mNotificationPulse.setChecked(Settings.System.getInt(getContext().getContentResolver(),

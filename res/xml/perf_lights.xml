@@ -8,7 +8,7 @@
             android:summaryOff="@string/battery_settings_summary_off"/>
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/notification_settings_category">
+    <PreferenceCategory android:key="notification_pulse_category" android:title="@string/notification_settings_category">
         <com.ultra.manager.utils.UltraSecureSettingSwitchPreference
             android:key="notification_pulse"
             android:title="@string/notification_settings_title"
