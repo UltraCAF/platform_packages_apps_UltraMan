@@ -40,6 +40,14 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".about.AboutActivity"
+            android:label="@string/About_settings_title">
+            <intent-filter android:priority="3">
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>
 
