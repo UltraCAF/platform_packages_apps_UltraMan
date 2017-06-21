@@ -29,33 +29,16 @@
             android:label="@string/app_title">
             <intent-filter android:priority="1">
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data
-                android:name="com.android.settings.category"
-                android:value="com.android.settings.category.personal" />
-            <meta-data
-                android:name="com.android.settings.icon"
-                android:resource="@drawable/ic_android" />
         </activity>
 
-        <activity-alias
-            android:name=".about.AboutFragment"
-            android:label="@string/About_settings_title"
-            android:targetActivity=".ManagerMain">
+        <activity
+            android:name=".lights.LedActivity"
+            android:label="@string/leds_settings_title">
             <intent-filter android:priority="2">
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
-                <action android:name="com.ultra.about.AboutFragment" />
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <meta-data
-                android:name="com.android.settings.category"
-                android:value="com.android.settings.category.personal" />
-            <meta-data
-                android:name="com.android.settings.icon"
-                android:resource="@drawable/ic_devs" />
-        </activity-alias>
+        </activity>
 
     </application>
 </manifest>

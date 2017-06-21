@@ -20,7 +20,7 @@ public class LedFragment extends SettingsPreferenceFragment implements
     private SwitchPreference mNotificationPulse;
     private SwitchPreference mBatLight;
     public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
-    public static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
+    private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
 
     private static final String TAG = "LightPerfs";
 
