@@ -23,10 +23,11 @@
 
         <!-- CAF Version  -->
         <Preference android:key="caf_version"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:title="@string/version_title"
-                android:summary="@string/version_default"/>
+            android:icon="@drawable/ic_android"
+            android:enabled="false"
+            android:shouldDisableView="false"
+            android:title="@string/version_title"
+            android:summary="@string/version_default"/>
 
     </PreferenceCategory>
 
