@@ -1,19 +1,17 @@
 package com.ultra.manager.about;
 
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
+import android.os.SystemProperties;
+import android.support.v7.preference.Preference;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.SystemProperties;
-import android.os.UserHandle;
 
 import com.ultra.manager.R;
 import com.ultra.manager.utils.SettingsPreferenceFragment;
 
 public class AboutFragment extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener {
 
     private static final String KEY_CAF_VERSION = "caf_version";
 
@@ -25,8 +23,7 @@ public class AboutFragment extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
 
         addPreferencesFromResource(R.xml.perf_about);
 
@@ -35,7 +32,7 @@ public class AboutFragment extends SettingsPreferenceFragment implements
 
     @Override
     public View onCreateView(LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
+                             ViewGroup container, Bundle savedInstanceState) {
         final View view = super.onCreateView(inflater, container, savedInstanceState);
         return view;
     }

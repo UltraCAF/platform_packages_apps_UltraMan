@@ -1,9 +1,9 @@
 
 package com.ultra.manager.utils;
 
-import android.content.Context;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
+import android.content.Context;
+import android.support.v14.preference.SwitchPreference;
 import android.util.AttributeSet;
 
 public class UltraSecureSettingSwitchPreference extends SwitchPreference {
@@ -39,9 +39,5 @@ public class UltraSecureSettingSwitchPreference extends SwitchPreference {
         }
         return Settings.Secure.getInt(getContext().getContentResolver(),
                 getKey(), defaultReturnValue ? 1 : 0) != 0;
-    }
-
-    protected boolean isPersisted() {
-        return Settings.Secure.getString(getContext().getContentResolver(), getKey()) != null;
     }
 }

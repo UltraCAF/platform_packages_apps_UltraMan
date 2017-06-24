@@ -2,8 +2,8 @@
 package com.ultra.manager.utils;
 
 import android.content.Context;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
+import android.support.v14.preference.SwitchPreference;
 import android.util.AttributeSet;
 
 public class UltraSystemSettingSwitchPreference extends SwitchPreference {
@@ -39,9 +39,5 @@ public class UltraSystemSettingSwitchPreference extends SwitchPreference {
         }
         return Settings.System.getInt(getContext().getContentResolver(),
                 getKey(), defaultReturnValue ? 1 : 0) != 0;
-    }
-
-    protected boolean isPersisted() {
-        return Settings.System.getString(getContext().getContentResolver(), getKey()) != null;
     }
 }

@@ -1,12 +1,12 @@
 package com.ultra.manager.lights;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceGroup;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceGroup;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v14.preference.PreferenceFragment;
+import android.support.v14.preference.SwitchPreference;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +14,10 @@ import android.view.ViewGroup;
 
 import com.ultra.manager.R;
 import com.ultra.manager.utils.SettingsPreferenceFragment;
+import com.ultra.manager.utils.UltraSystemSettingSwitchPreference;
 
 public class LedFragment extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener {
 
     private SwitchPreference mNotificationPulse;
     private SwitchPreference mBatLight;
@@ -35,17 +36,24 @@ public class LedFragment extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.perf_lights);
+
         mBatLight = (SwitchPreference) getPreferenceScreen().findPreference(BATTERY_LIGHT_ENABLED);
+        mBatLight.setOnPreferenceChangeListener(this);
+
         mNotificationPulse = (SwitchPreference) getPreferenceScreen().findPreference(KEY_NOTIFICATION_PULSE);
+        mNotificationPulse.setOnPreferenceChangeListener(this);
+
         PreferenceGroup NotifGroup = (PreferenceGroup) findPreference(KEY_NOTIFICATION_PULSE_CATE);
 
         // Battery Lights Options
-        try {
-           mBatLight.setChecked(Settings.System.getInt(getContext().getContentResolver(),
-                   Settings.System.BATTERY_LIGHT_ENABLED) == 1);
-        } catch (Settings.SettingNotFoundException snfe) {
-            Log.e(TAG, Settings.System.BATTERY_LIGHT_ENABLED + " not found");
-        }
+//        try {
+//           mBatLight.setChecked(Settings.System.getInt(getContext().getContentResolver(),
+//                   Settings.System.BATTERY_LIGHT_ENABLED) == 1);
+
+           mBatLight.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.BATTERY_LIGHT_ENABLED, 0) == 1);
+//        } catch (Settings.SettingNotFoundException snfe) {
+//            Log.e(TAG, Settings.System.BATTERY_LIGHT_ENABLED + " not found");
+//        }
 
         // Pulsing Lights Options
         if (!getResources()
@@ -55,20 +63,13 @@ public class LedFragment extends SettingsPreferenceFragment implements
                getPreferenceScreen().removePreference(NotifGroup);
             }
         } else {
-          try {
-              mNotificationPulse.setChecked(Settings.System.getInt(getContext().getContentResolver(),
-                      Settings.System.NOTIFICATION_LIGHT_PULSE) == 1);
-          } catch (Settings.SettingNotFoundException snfe) {
-              Log.e(TAG, Settings.System.NOTIFICATION_LIGHT_PULSE + " not found");
-          }
+//          try {
+              mNotificationPulse.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                     Settings.System.NOTIFICATION_LIGHT_PULSE, 0) == 1);
+//          } catch (Settings.SettingNotFoundException snfe) {
+//              Log.e(TAG, Settings.System.NOTIFICATION_LIGHT_PULSE + " not found");
+//          }
         }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
-        final View view = super.onCreateView(inflater, container, savedInstanceState);
-        return view;
     }
 
     @Override
@@ -90,4 +91,5 @@ public class LedFragment extends SettingsPreferenceFragment implements
         return false;
     }
 }
+
 

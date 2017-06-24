@@ -2,7 +2,7 @@ package com.ultra.manager.utils;
 
 import android.content.Context;
 import android.provider.Settings;
-import android.preference.SwitchPreference;
+import android.support.v14.preference.SwitchPreference;
 import android.util.AttributeSet;
 
 public class SystemSettingSwitchPreference extends SwitchPreference {
