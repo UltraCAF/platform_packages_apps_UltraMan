@@ -23,10 +23,12 @@ public class RootFragment extends SettingsPreferenceFragment implements
     private SwitchPreference mdt2w;
     private SwitchPreference mArchPower;
     private SwitchPreference mMSMhotplug;
+    private SwitchPreference mAluCard;
 
     private String DOUBLETAP2WAKE = "dt2w";
     private String ARCHPOWER = "archpower";
     private String MSMHOTPLUG = "msmhotplug";
+    private String ALUCARD = "alucard";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,9 @@ public class RootFragment extends SettingsPreferenceFragment implements
 
         mMSMhotplug = (SwitchPreference) findPreference(MSMHOTPLUG);
         mMSMhotplug.setOnPreferenceChangeListener(this);
+
+        mAluCard = (SwitchPreference) findPreference(ALUCARD);
+        mAluCard.setOnPreferenceChangeListener(this);
 
         if (mdt2w != null){
           if(TPanel().toString() != null){
@@ -77,6 +82,18 @@ public class RootFragment extends SettingsPreferenceFragment implements
                mMSMhotplug.setEnabled(false);
               }
         }
+
+        if (mMSMhotplug != null){
+              if (new File("/sys/kernel/alucard_hotplug/hotplug_enable").exists()) {
+                 if (CMDProcessor.runSuCommand("cat /sys/kernel/alucard_hotplug/hotplug_enable").getStdout().contains("1")) {
+                    mAluCard.setChecked(true);
+                 } else {
+                    mAluCard.setChecked(false);
+                 }
+              } else {
+               mAluCard.setEnabled(false);
+              }
+        }
     }
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -93,6 +110,11 @@ public class RootFragment extends SettingsPreferenceFragment implements
         if (preference == mMSMhotplug){
             boolean value = (Boolean) newValue;
             CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/module/msm_hotplug/msm_enabled");
+            return true;
+        }
+        if (preference == mAluCard){
+            boolean value = (Boolean) newValue;
+            CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/kernel/alucard_hotplug/hotplug_enable");
             return true;
         }
         return false;
