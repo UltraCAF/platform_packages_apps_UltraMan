@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/root_category_governors">
+        <ListPreference
+            android:defaultValue="180"
+            android:entries="@array/gover"
+            android:entryValues="@array/gover_val"
+            android:key="sync_frequency"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/root_governors_selector_title"
+            android:summary="@string/root_governors_selector_summary"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/root_category_dt2w">
+        <SwitchPreference
+            android:key="dt2w"
+            android:title="@string/root_dt2w_title"
+            android:summary="@string/root_dt2w_summary"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/root_category_power">
+        <SwitchPreference
+            android:key="archpower"
+            android:title="@string/root_power_archpower_title"
+            android:summary="@string/root_power_archpower_summary"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/root_category_hotplug">
+        <SwitchPreference
+            android:key="msmhotplug"
+            android:title="@string/root_msmHP_title"
+            android:summary="@string/root_msmHP_summary"/>
+
+        <SwitchPreference
+            android:key="alucard"
+            android:title="@string/root_alu_title"
+            android:summary="@string/root_alu_summary"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/root_category_usb">
+        <SwitchPreference android:key="usbfastcharge"
+            android:title="@string/root_usbFC_title"
+            android:summary="@string/root_usbFC_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

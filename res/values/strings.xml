@@ -49,4 +49,48 @@
     <string name="version_title">CAF Version</string>
     <string name="version_default">Unknown</string>
     <string name="device_info_default">Unknown</string>
+
+    <!-- Root Settings-->
+    <string name="root_category_governors">Kernel Governor</string>
+    <string name="root_category_dt2w">Kernel Dt2W</string>
+    <string name="root_category_power">Power Options</string>
+    <string name="root_category_usb">USB Fast Charging</string>
+    <string name="root_category_hotplug">Kernel Hotplug</string>
+
+    <string name="root_governors_selector_title">Kernel Governors</string>
+    <string name="root_governors_selector_summary">Choose CPU Governor for a list of available Governors in current Kernel</string>
+
+    <string name="root_dt2w_title">Kernel Double Tap to Wake</string>
+    <string name="root_dt2w_summary">Kernel Feature Enables you to wake your phone by double tapping on your screen</string>
+
+    <string name="root_power_archpower_title">Arch Power Feature</string>
+    <string name="root_power_archpower_summary">Arch Powe is MSM Power feature can help you manage your phone power</string>
+
+    <string name="root_msmHP_title">MSM Hotplug</string>
+    <string name="root_msmHP_summary">Switch MSM HotPlug Kernel feature</string>
+
+    <string name="root_alu_title">AluCard HotPlug</string>
+    <string name="root_alu_summary">Switch AluCard HotPlug Kernel feature</string>
+
+    <string name="root_usbFC_title">Usb Fast Charge</string>
+    <string name="root_usbFC_summary">USB Fast charging feature enable you to charge your phone fast through USB port</string>
+
+    <!-- Governors List -->
+    <string name="smartmax">SmartMax</string>
+    <string name="lionfish">LionFish</string>
+    <string name="chil">Chil</string>
+    <string name="darkness">Darkness</string>
+    <string name="zzmoove">zzMoove</string>
+    <string name="wheatley">Wheatley</string>
+    <string name="impulse">Impulse</string>
+    <string name="intelliactive">IntelliActive</string>
+    <string name="interactive_pro">Interactive_Pro</string>
+    <string name="interactive">Interactive</string>
+    <string name="ondemand">onDemand</string>
+    <string name="conservative">Conservative</string>
+    <string name="userspace">UserSpace</string>
+    <string name="powersave">PowerSave</string>
+    <string name="performance">Performance</string>
+
 </resources>
+
