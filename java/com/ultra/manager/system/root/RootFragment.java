@@ -22,9 +22,11 @@ public class RootFragment extends SettingsPreferenceFragment implements
 
     private SwitchPreference mdt2w;
     private SwitchPreference mArchPower;
+    private SwitchPreference mMSMhotplug;
 
     private String DOUBLETAP2WAKE = "dt2w";
     private String ARCHPOWER = "archpower";
+    private String MSMHOTPLUG = "msmhotplug";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,9 @@ public class RootFragment extends SettingsPreferenceFragment implements
 
         mArchPower = (SwitchPreference) findPreference(ARCHPOWER);
         mArchPower.setOnPreferenceChangeListener(this);
+
+        mMSMhotplug = (SwitchPreference) findPreference(MSMHOTPLUG);
+        mMSMhotplug.setOnPreferenceChangeListener(this);
 
         if (mdt2w != null){
           if(TPanel().toString() != null){
@@ -60,6 +65,18 @@ public class RootFragment extends SettingsPreferenceFragment implements
                mArchPower.setEnabled(false);
               }
         }
+
+        if (mMSMhotplug != null){
+              if (new File("/sys/kernel/sched/arch_power").exists()) {
+                 if (CMDProcessor.runSuCommand("cat /sys/module/msm_hotplug/msm_enabled").getStdout().contains("1")) {
+                    mMSMhotplug.setChecked(true);
+                 } else {
+                    mMSMhotplug.setChecked(false);
+                 }
+              } else {
+               mMSMhotplug.setEnabled(false);
+              }
+        }
     }
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -71,6 +88,11 @@ public class RootFragment extends SettingsPreferenceFragment implements
         if (preference == mArchPower){
             boolean value = (Boolean) newValue;
             CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/kernel/sched/arch_power");
+            return true;
+        }
+        if (preference == mMSMhotplug){
+            boolean value = (Boolean) newValue;
+            CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/module/msm_hotplug/msm_enabled");
             return true;
         }
         return false;
