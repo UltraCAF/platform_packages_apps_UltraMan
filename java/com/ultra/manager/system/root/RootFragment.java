@@ -10,9 +10,9 @@ import com.ultra.manager.R;
 import com.ultra.manager.utils.CMDProcessor;
 import com.ultra.manager.utils.SettingsPreferenceFragment;
 
-import static com.ultra.manager.utils.TouchPanelChecker.TPanel;
-
 import java.io.File;
+
+import static com.ultra.manager.utils.TouchPanelChecker.TPanel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,62 +53,62 @@ public class RootFragment extends SettingsPreferenceFragment implements
         mFastCharge.setOnPreferenceChangeListener(this);
 
         if (mdt2w != null){
-          if(TPanel().toString() != null){
-            if (CMDProcessor.runSuCommand("cat " + TPanel().toString()).getStdout().contains("1")) {
-                mdt2w.setChecked(true);
-            }else {
-                mdt2w.setChecked(false);
+            if(TPanel().toString() != null){
+                if (CMDProcessor.runSuCommand("cat " + TPanel().toString()).getStdout().contains("1")) {
+                    mdt2w.setChecked(true);
+                }else {
+                    mdt2w.setChecked(false);
+                }
+            } else {
+                mdt2w.setEnabled(false);
             }
-           } else {
-            mdt2w.setEnabled(false);
-           }
         }
 
         if (mArchPower != null){
-              if (new File("/sys/kernel/sched/arch_power").exists()) {
-                 if (CMDProcessor.runSuCommand("cat /sys/kernel/sched/arch_power").getStdout().contains("1")) {
+            if (new File("/sys/kernel/sched/arch_power").exists()) {
+                if (CMDProcessor.runSuCommand("cat /sys/kernel/sched/arch_power").getStdout().contains("1")) {
                     mArchPower.setChecked(true);
-                 } else {
+                } else {
                     mArchPower.setChecked(false);
-                 }
-              } else {
-               mArchPower.setEnabled(false);
-              }
+                }
+            } else {
+                mArchPower.setEnabled(false);
+            }
         }
 
         if (mMSMhotplug != null){
-              if (new File("/sys/kernel/sched/arch_power").exists()) {
-                 if (CMDProcessor.runSuCommand("cat /sys/module/msm_hotplug/msm_enabled").getStdout().contains("1")) {
+            if (new File("/sys/kernel/sched/arch_power").exists()) {
+                if (CMDProcessor.runSuCommand("cat /sys/module/msm_hotplug/msm_enabled").getStdout().contains("1")) {
                     mMSMhotplug.setChecked(true);
-                 } else {
+                } else {
                     mMSMhotplug.setChecked(false);
-                 }
-              } else {
-               mMSMhotplug.setEnabled(false);
-              }
+                }
+            } else {
+                mMSMhotplug.setEnabled(false);
+            }
         }
 
         if (mMSMhotplug != null){
-              if (new File("/sys/kernel/alucard_hotplug/hotplug_enable").exists()) {
-                 if (CMDProcessor.runSuCommand("cat /sys/kernel/alucard_hotplug/hotplug_enable").getStdout().contains("1")) {
+            if (new File("/sys/kernel/alucard_hotplug/hotplug_enable").exists()) {
+                if (CMDProcessor.runSuCommand("cat /sys/kernel/alucard_hotplug/hotplug_enable").getStdout().contains("1")) {
                     mAluCard.setChecked(true);
-                 } else {
+                } else {
                     mAluCard.setChecked(false);
-                 }
-              } else {
-               mAluCard.setEnabled(false);
-              }
+                }
+            } else {
+                mAluCard.setEnabled(false);
+            }
         }
         if (mFastCharge != null){
-              if (new File("/sys/kernel/fast_charge/force_fast_charge").exists()) {
-                 if (CMDProcessor.runSuCommand("cat /sys/kernel/fast_charge/force_fast_charge").getStdout().contains("1")) {
+            if (new File("/sys/kernel/fast_charge/force_fast_charge").exists()) {
+                if (CMDProcessor.runSuCommand("cat /sys/kernel/fast_charge/force_fast_charge").getStdout().contains("1")) {
                     mFastCharge.setChecked(true);
-                 } else {
+                } else {
                     mFastCharge.setChecked(false);
-                 }
-              } else {
-               mFastCharge.setEnabled(false);
-              }
+                }
+            } else {
+                mFastCharge.setEnabled(false);
+            }
         }
     }
     @Override
@@ -141,4 +141,3 @@ public class RootFragment extends SettingsPreferenceFragment implements
         return false;
     }
 }
-

@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:androidprv="http://schemas.android.com/apk/prv/res/android"
     package="com.ultra.manager"
+    android:sharedUserId="android.uid.system"
     android:versionCode="1"
-    android:versionName="1.0"
-    android:sharedUserId="android.uid.system">
+    android:versionName="1.0">
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -29,6 +29,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Settings">
+
+        <receiver android:name=".BootReceiver"
+            android:enabled="true"
+            android:exported="false"
+            android:label="ServiceManager">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:label="Service"
+            android:enabled="true"
+            android:exported="false"
+            android:name=".system.root.enablerService">
+        </service>
+
         <activity
             android:name=".system.root.rootOptions"
             android:label="@string/app_title">
@@ -57,7 +73,6 @@
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
         </activity>
-        
     </application>
 
 </manifest>
