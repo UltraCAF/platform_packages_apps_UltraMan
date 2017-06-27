@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/app_title">
+
+        <Preference android:summary="@string/system_summary" />
+
+        <Preference
+            android:enabled="false"
+            android:title="@string/system_settings_title"
+            android:summary="@string/system_settings_summary"
+            android:icon="@drawable/ic_perm_device_information"/>
+
+        <PreferenceScreen
+            android:title="@string/system_root_title"
+            android:summary="@string/system_root_summary"
+            android:icon="@drawable/ic_code">
+           <intent
+               android:action="android.intent.action.VIEW"
+               android:targetPackage="com.ultra.manager"
+               android:targetClass="com.ultra.manager.system.root.rootOptions" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+</PreferenceScreen>

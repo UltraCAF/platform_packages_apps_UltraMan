@@ -13,7 +13,7 @@
     <string name="UP_settings_category" translatable="false">Updates</string>
 
     <!-- About Settings Header item -->
-    <string name="About_settings_title">About Us</string>
+    <string name="About_settings_title">About UltraDevs</string>
     <string name="About_settings_summary">Get information about Us</string>
     <string name="About_settings_category" translatable="false">About us</string>
 
@@ -92,5 +92,12 @@
     <string name="powersave">PowerSave</string>
     <string name="performance">Performance</string>
 
+    <!-- System Options-->
+    <string name="system_summary">Some Settings related to UltraCAF rom .. you can Customize some system and kernel features</string>
+    <string name="system_settings_title">System Settings</string>
+    <string name="system_settings_summary">System Related settings .. add and remove features</string>
+
+    <string name="system_root_title">Root Based Settings</string>
+    <string name="system_root_summary">Manage Some Rom and kernel related root based settings</string>
 </resources>
 

@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <header
-        android:title="@string/UP_settings_title"
-        android:summary="@string/UP_settings_summary" />
+    <PreferenceCategory android:title="@string/app_title" android:summary="@string/system_summary" > 
 
-    <header
-        android:title="@string/About_settings_title"
-        android:fragment="com.ultra.manager.about.AboutFragment"
-        android:summary="@string/About_settings_summary" />
+        <header
+            android:title="@string/system_settings_title"
+            android:summary="@string/system_settings_summary"
+            android:icon="@drawable/ic_perm_device_information" />
+    </PreferenceCategory>
 
-    <header
-        android:title="@string/leds_settings_title"
-        android:summary="@string/leds_settings_summary"
-        android:fragment="com.ultra.manager.lights.LedFragment" />
+    <PreferenceCategory android:title="APPLICATION" >
+
+        <header android:fragment="com.ultra.manager.system.root.RootFragment"
+            android:title="@string/system_root_title"
+            android:summary="@string/system_root_summary"
+            android:icon="@drawable/ic_code" />
+    </PreferenceCategory>
 
 </preference-headers>
