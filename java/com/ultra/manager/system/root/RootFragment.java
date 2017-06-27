@@ -126,11 +126,21 @@ public class RootFragment extends SettingsPreferenceFragment implements
         if (preference == mMSMhotplug){
             boolean value = (Boolean) newValue;
             CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/module/msm_hotplug/msm_enabled");
+            if(value == true){
+                mAluCard.setEnabled(false);
+            }else{
+                mAluCard.setEnabled(true);
+            }
             return true;
         }
         if (preference == mAluCard){
             boolean value = (Boolean) newValue;
             CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/kernel/alucard_hotplug/hotplug_enable");
+            if(value == true){
+                mMSMhotplug.setEnabled(false);
+            }else{
+                mMSMhotplug.setEnabled(true);
+            }
             return true;
         }
         if (preference == mFastCharge){
@@ -141,3 +151,4 @@ public class RootFragment extends SettingsPreferenceFragment implements
         return false;
     }
 }
+
