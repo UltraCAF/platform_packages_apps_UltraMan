@@ -97,7 +97,7 @@ public class CommandResult implements Parcelable {
             try {
                 File errorLogFile = new File(
                         Environment.getExternalStorageDirectory()
-                        + "/aokp/error.txt");
+                        + "/aosp/error.txt");
                 if (!errorLogFile.exists()) {
                     errorLogFile.createNewFile();
                 }

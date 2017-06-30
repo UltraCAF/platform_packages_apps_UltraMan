@@ -9,6 +9,7 @@ import android.support.v7.preference.Preference;
 import com.ultra.manager.R;
 import com.ultra.manager.utils.CMDProcessor;
 import com.ultra.manager.utils.SettingsPreferenceFragment;
+import com.ultra.manager.utils.rootChecker;
 
 import java.io.File;
 
@@ -51,102 +52,111 @@ public class RootFragment extends SettingsPreferenceFragment implements
 
         mFastCharge = (SwitchPreference) findPreference(USBFASTCHARGE);
         mFastCharge.setOnPreferenceChangeListener(this);
-
-        if (mdt2w != null){
-            if(TPanel().toString() != null){
-                if (CMDProcessor.runSuCommand("cat " + TPanel().toString()).getStdout().contains("1")) {
-                    mdt2w.setChecked(true);
-                }else {
-                    mdt2w.setChecked(false);
-                }
-            } else {
-                mdt2w.setEnabled(false);
-            }
-        }
-
-        if (mArchPower != null){
-            if (new File("/sys/kernel/sched/arch_power").exists()) {
-                if (CMDProcessor.runSuCommand("cat /sys/kernel/sched/arch_power").getStdout().contains("1")) {
-                    mArchPower.setChecked(true);
+        if (rootChecker.isDeviceRooted() == true) {
+            if (mdt2w != null) {
+                if (TPanel().toString() != null) {
+                    if (CMDProcessor.runSuCommand("cat " + TPanel().toString()).getStdout().contains("1")) {
+                        mdt2w.setChecked(true);
+                    } else {
+                        mdt2w.setChecked(false);
+                    }
                 } else {
-                    mArchPower.setChecked(false);
+                    mdt2w.setEnabled(false);
                 }
-            } else {
-                mArchPower.setEnabled(false);
             }
-        }
 
-        if (mMSMhotplug != null){
-            if (new File("/sys/kernel/sched/arch_power").exists()) {
-                if (CMDProcessor.runSuCommand("cat /sys/module/msm_hotplug/msm_enabled").getStdout().contains("1")) {
-                    mMSMhotplug.setChecked(true);
+            if (mArchPower != null) {
+                if (new File("/sys/kernel/sched/arch_power").exists()) {
+                    if (CMDProcessor.runSuCommand("cat /sys/kernel/sched/arch_power").getStdout().contains("1")) {
+                        mArchPower.setChecked(true);
+                    } else {
+                        mArchPower.setChecked(false);
+                    }
                 } else {
-                    mMSMhotplug.setChecked(false);
+                    mArchPower.setEnabled(false);
                 }
-            } else {
-                mMSMhotplug.setEnabled(false);
             }
-        }
 
-        if (mMSMhotplug != null){
-            if (new File("/sys/kernel/alucard_hotplug/hotplug_enable").exists()) {
-                if (CMDProcessor.runSuCommand("cat /sys/kernel/alucard_hotplug/hotplug_enable").getStdout().contains("1")) {
-                    mAluCard.setChecked(true);
+            if (mMSMhotplug != null) {
+                if (new File("/sys/kernel/sched/arch_power").exists()) {
+                    if (CMDProcessor.runSuCommand("cat /sys/module/msm_hotplug/msm_enabled").getStdout().contains("1")) {
+                        mMSMhotplug.setChecked(true);
+                    } else {
+                        mMSMhotplug.setChecked(false);
+                    }
                 } else {
-                    mAluCard.setChecked(false);
+                    mMSMhotplug.setEnabled(false);
                 }
-            } else {
-                mAluCard.setEnabled(false);
             }
-        }
-        if (mFastCharge != null){
-            if (new File("/sys/kernel/fast_charge/force_fast_charge").exists()) {
-                if (CMDProcessor.runSuCommand("cat /sys/kernel/fast_charge/force_fast_charge").getStdout().contains("1")) {
-                    mFastCharge.setChecked(true);
+
+            if (mMSMhotplug != null) {
+                if (new File("/sys/kernel/alucard_hotplug/hotplug_enable").exists()) {
+                    if (CMDProcessor.runSuCommand("cat /sys/kernel/alucard_hotplug/hotplug_enable").getStdout().contains("1")) {
+                        mAluCard.setChecked(true);
+                    } else {
+                        mAluCard.setChecked(false);
+                    }
                 } else {
-                    mFastCharge.setChecked(false);
+                    mAluCard.setEnabled(false);
                 }
-            } else {
-                mFastCharge.setEnabled(false);
             }
+            if (mFastCharge != null) {
+                if (new File("/sys/kernel/fast_charge/force_fast_charge").exists()) {
+                    if (CMDProcessor.runSuCommand("cat /sys/kernel/fast_charge/force_fast_charge").getStdout().contains("1")) {
+                        mFastCharge.setChecked(true);
+                    } else {
+                        mFastCharge.setChecked(false);
+                    }
+                } else {
+                    mFastCharge.setEnabled(false);
+                }
+            }
+        }else{
+            mdt2w.setEnabled(false);
+            mArchPower.setEnabled(false);
+            mAluCard.setEnabled(false);
+            mMSMhotplug.setEnabled(false);
+            mFastCharge.setEnabled(false);
         }
     }
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mdt2w){
-            boolean value = (Boolean) newValue;
-            CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > " + TPanel());
-            return true;
-        }
-        if (preference == mArchPower){
-            boolean value = (Boolean) newValue;
-            CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/kernel/sched/arch_power");
-            return true;
-        }
-        if (preference == mMSMhotplug){
-            boolean value = (Boolean) newValue;
-            CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/module/msm_hotplug/msm_enabled");
-            if(value == true){
-                mAluCard.setEnabled(false);
-            }else{
-                mAluCard.setEnabled(true);
+        if (rootChecker.isDeviceRooted() == true) {
+            if (preference == mdt2w) {
+                boolean value = (Boolean) newValue;
+                CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > " + TPanel());
+                return true;
             }
-            return true;
-        }
-        if (preference == mAluCard){
-            boolean value = (Boolean) newValue;
-            CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/kernel/alucard_hotplug/hotplug_enable");
-            if(value == true){
-                mMSMhotplug.setEnabled(false);
-            }else{
-                mMSMhotplug.setEnabled(true);
+            if (preference == mArchPower) {
+                boolean value = (Boolean) newValue;
+                CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/kernel/sched/arch_power");
+                return true;
             }
-            return true;
-        }
-        if (preference == mFastCharge){
-            boolean value = (Boolean) newValue;
-            CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/kernel/fast_charge/force_fast_charge");
-            return true;
+            if (preference == mMSMhotplug) {
+                boolean value = (Boolean) newValue;
+                CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/module/msm_hotplug/msm_enabled");
+                if (value == true) {
+                    mAluCard.setEnabled(false);
+                } else {
+                    mAluCard.setEnabled(true);
+                }
+                return true;
+            }
+            if (preference == mAluCard) {
+                boolean value = (Boolean) newValue;
+                CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/kernel/alucard_hotplug/hotplug_enable");
+                if (value == true) {
+                    mMSMhotplug.setEnabled(false);
+                } else {
+                    mMSMhotplug.setEnabled(true);
+                }
+                return true;
+            }
+            if (preference == mFastCharge) {
+                boolean value = (Boolean) newValue;
+                CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/kernel/fast_charge/force_fast_charge");
+                return true;
+            }
         }
         return false;
     }
