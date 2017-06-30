@@ -190,11 +190,6 @@ public abstract class SettingsPreferenceFragment extends PreferenceFragment
         unregisterObserverIfNeeded();
     }
 
-    public void showLoadingWhenEmpty() {
-        View loading = getView().findViewById(R.id.loading_container);
-        setEmptyView(loading);
-    }
-
     public void handleLoadingContainer(View loading, View doneLoading, boolean done,
                                        boolean animate) {
         setViewShown(loading, !done, animate);
@@ -228,11 +223,6 @@ public abstract class SettingsPreferenceFragment extends PreferenceFragment
             view.clearAnimation();
             view.setVisibility(shown ? View.VISIBLE : View.INVISIBLE);
         }
-    }
-
-    public void setLoading(boolean loading, boolean animate) {
-        View loading_container = getView().findViewById(R.id.loading_container);
-        handleLoadingContainer(loading_container, getListView(), !loading, animate);
     }
 
     public void registerObserverIfNeeded() {
