@@ -18,6 +18,8 @@ package com.ultra.manager.utils;
 
 import android.app.Dialog;
 
+import java.net.ProxySelector;
+
 /**
  * Letting the class, assumed to be Fragment, create a Dialog on it. Should be useful
  * you want to utilize some capability in {@link SettingsPreferenceFragment} but don't want

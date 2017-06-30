@@ -46,8 +46,6 @@ import android.view.animation.AnimationUtils;
 
 import com.ultra.manager.R;
 
-import java.util.UUID;
-
 /**
  * Base class for Settings fragments, with some helper functions and dialog management.
  */
@@ -94,9 +92,6 @@ public abstract class SettingsPreferenceFragment extends PreferenceFragment
     private ViewGroup mPinnedHeaderFrameLayout;
     private ViewGroup mButtonBar;
 
-    private LayoutPreference mHeader;
-
-    private LayoutPreference mFooter;
     private View mEmptyView;
     private LinearLayoutManager mLayoutManager;
     private HighlightablePreferenceGroupAdapter mAdapter;
@@ -273,54 +268,6 @@ public abstract class SettingsPreferenceFragment extends PreferenceFragment
         updateEmptyView();
     }
 
-    public LayoutPreference getHeaderView() {
-        return mHeader;
-    }
-
-    public LayoutPreference getFooterView() {
-        return mFooter;
-    }
-
-    protected void setHeaderView(int resource) {
-        mHeader = new LayoutPreference(getPrefContext(), resource);
-        addPreferenceToTop(mHeader);
-    }
-
-    protected void setHeaderView(View view) {
-        mHeader = new LayoutPreference(getPrefContext(), view);
-        addPreferenceToTop(mHeader);
-    }
-
-    private void addPreferenceToTop(LayoutPreference preference) {
-        preference.setOrder(ORDER_FIRST);
-        if (getPreferenceScreen() != null) {
-            getPreferenceScreen().addPreference(preference);
-        }
-    }
-
-    protected void setFooterView(int resource) {
-        setFooterView(resource != 0 ? new LayoutPreference(getPrefContext(), resource) : null);
-    }
-
-    protected void setFooterView(View v) {
-        setFooterView(v != null ? new LayoutPreference(getPrefContext(), v) : null);
-    }
-
-    private void setFooterView(LayoutPreference footer) {
-        if (getPreferenceScreen() != null && mFooter != null) {
-            getPreferenceScreen().removePreference(mFooter);
-        }
-        if (footer != null) {
-            mFooter = footer;
-            mFooter.setOrder(ORDER_LAST);
-            if (getPreferenceScreen() != null) {
-                getPreferenceScreen().addPreference(mFooter);
-            }
-        } else {
-            mFooter = null;
-        }
-    }
-
     @Override
     public void setPreferenceScreen(PreferenceScreen preferenceScreen) {
         if (preferenceScreen != null && !preferenceScreen.isAttached()) {
@@ -328,26 +275,10 @@ public abstract class SettingsPreferenceFragment extends PreferenceFragment
             preferenceScreen.setShouldUseGeneratedIds(mAnimationAllowed);
         }
         super.setPreferenceScreen(preferenceScreen);
-        if (preferenceScreen != null) {
-            if (mHeader != null) {
-                preferenceScreen.addPreference(mHeader);
-            }
-            if (mFooter != null) {
-                preferenceScreen.addPreference(mFooter);
-            }
-        }
     }
 
     private void updateEmptyView() {
         if (mEmptyView == null) return;
-        if (getPreferenceScreen() != null) {
-            boolean show = (getPreferenceScreen().getPreferenceCount()
-                    - (mHeader != null ? 1 : 0)
-                    - (mFooter != null ? 1 : 0)) <= 0;
-            mEmptyView.setVisibility(show ? View.VISIBLE : View.GONE);
-        } else {
-            mEmptyView.setVisibility(View.VISIBLE);
-        }
     }
 
     public void setEmptyView(View v) {
@@ -562,25 +493,6 @@ public abstract class SettingsPreferenceFragment extends PreferenceFragment
 
     public void onDialogShowing() {
         // override in subclass to attach a dismiss listener, for instance
-    }
-
-    @Override
-    public void onDisplayPreferenceDialog(Preference preference) {
-        if (preference.getKey() == null) {
-            // Auto-key preferences that don't have a key, so the dialog can find them.
-            preference.setKey(UUID.randomUUID().toString());
-        }
-        DialogFragment f = null;
-        if (preference instanceof CustomDialogPreference) {
-            f = CustomDialogPreference.CustomPreferenceDialogFragment
-                    .newInstance(preference.getKey());
-        } else {
-            super.onDisplayPreferenceDialog(preference);
-            return;
-        }
-        f.setTargetFragment(this, 0);
-        f.show(getFragmentManager(), "dialog_preference");
-        onDialogShowing();
     }
 
     public static class SettingsDialogFragment extends DialogFragment {
