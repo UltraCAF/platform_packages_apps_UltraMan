@@ -111,8 +111,6 @@ public abstract class SettingsPreferenceFragment extends PreferenceFragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View root = super.onCreateView(inflater, container, savedInstanceState);
-        mPinnedHeaderFrameLayout = (ViewGroup) root.findViewById(R.id.pinned_header);
-        mButtonBar = (ViewGroup) root.findViewById(R.id.button_bar);
         return root;
     }
 

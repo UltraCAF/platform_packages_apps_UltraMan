@@ -4,15 +4,11 @@
 
         <Preference android:summary="@string/system_summary" />
 
-        <PreferenceScreen
+        <Preference
+            android:enabled="false"
             android:title="@string/system_settings_title"
             android:summary="@string/system_settings_summary"
-            android:icon="@drawable/ic_perm_device_information">
-           <intent
-               android:action="android.intent.action.VIEW"
-               android:targetPackage="com.ultra.manager"
-               android:targetClass="com.ultra.manager.system.traffic.Traffic" />
-        </PreferenceScreen>
+            android:icon="@drawable/ic_perm_device_information"/>
 
         <PreferenceScreen
             android:title="@string/system_root_title"
