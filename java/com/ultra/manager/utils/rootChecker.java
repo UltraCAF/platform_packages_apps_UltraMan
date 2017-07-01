@@ -59,6 +59,8 @@ public final class rootChecker {
                     result = false;
                 }
                 break;
+            }else{
+               result = false;
             }
         }
         return result;
