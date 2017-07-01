@@ -26,9 +26,9 @@ import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
-
-import com.android.settings.R;
 import com.ultra.manager.utils.CustomSeekBarPreference;
+
+import com.ultra.manager.R;
 import com.ultra.manager.utils.SettingsPreferenceFragment;
 
 
@@ -105,11 +105,6 @@ public class Traffic extends SettingsPreferenceFragment
         }
     }
 
-    @Override
-    protected int getMetricsCategory() {
-       return MetricsEvent.CAF;
-   }
-
     private void updateNetworkTrafficState(int mIndex) {
         if (mIndex <= 0) {
             mNetTrafficUnit.setEnabled(false);
@@ -183,3 +178,4 @@ public class Traffic extends SettingsPreferenceFragment
         return (intNumber & intMask) == intMask;
     }
 }
+

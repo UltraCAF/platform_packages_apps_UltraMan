@@ -18,19 +18,21 @@ package com.ultra.manager.utils;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.ViewParent;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.support.v7.preference.*;
 
-import com.android.settings.R;
+import com.ultra.manager.R;
+
 
 public class CustomSeekBarPreference extends Preference implements SeekBar.OnSeekBarChangeListener {
     private final String TAG = getClass().getName();
-    private static final String SETTINGS_NS = "http://schemas.android.com/apk/res/com.android.settings";
+    private static final String CAF = "http://schemas.android.com/apk/res/com.ultra.manager";
     private static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
     private static final int DEFAULT_VALUE = 50;
 
@@ -50,10 +52,10 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
         final TypedArray a = context.obtainStyledAttributes(
                 attrs, R.styleable.CustomSeekBarPreference);
 
-        mMax = attrs.getAttributeIntValue(SETTINGS_NS, "max", 255);
-        mMin = attrs.getAttributeIntValue(SETTINGS_NS, "min", 0);
+        mMax = attrs.getAttributeIntValue(CAF, "max", 255);
+        mMin = attrs.getAttributeIntValue(CAF, "min", 0);
         mDefaultValue = attrs.getAttributeIntValue(ANDROIDNS, "defaultValue", -1);
-        mUnits = getAttributeStringValue(attrs, SETTINGS_NS, "units", "");
+        mUnits = getAttributeStringValue(attrs, CAF, "units", "");
 
         Integer id = a.getResourceId(R.styleable.CustomSeekBarPreference_units, 0);
         if (id > 0) {
@@ -61,7 +63,7 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
         }
 
         try {
-            String newInterval = attrs.getAttributeValue(SETTINGS_NS, "interval");
+            String newInterval = attrs.getAttributeValue(CAF, "interval");
             if (newInterval != null)
                 mInterval = Integer.parseInt(newInterval);
         } catch (Exception e) {

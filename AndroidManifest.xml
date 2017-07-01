@@ -80,6 +80,8 @@
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
         </activity>
+        <activity android:name=".system.MainActivity" />
+        <activity android:name=".system.traffic.TrafficActivity" />
     </application>
 
 </manifest>

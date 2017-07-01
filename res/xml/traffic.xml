@@ -11,10 +11,10 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
-    android:title="@string/network_traffic_title"
+<PreferenceScreen android:title="@string/network_traffic_title"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:caf="http://schemas.android.com/apk/res/com.ultra.manager" >
 
     <ListPreference
         android:key="network_traffic_state"
@@ -50,9 +50,10 @@
         android:key="network_traffic_autohide_threshold"
         android:title="@string/network_traffic_autohide_threshold"
         android:max="100"
-        settings:min="0"
-        settings:units="kB/s"
+        caf:min="0"
+        caf:units="kB/s"
         android:dependency="network_traffic_autohide"
         android:persistent="false" />
 
 </PreferenceScreen>
+
