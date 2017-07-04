@@ -107,6 +107,12 @@
     <string name="traffic_title">Network Traffic</string>
     <string name="traffic_summary">Add Network Traffic Indicator To your Statusbar</string>
 
+    <!-- Others -->
+    <string name="cat_other">Other System Settings</string>
+
+    <!-- Screenshot shutter sound -->
+    <string name="screenshot_shutter_sound_title">Screenshot shutter sound</string>
+
     <!-- Network traffic -->
     <string name="network_traffic_title">Network traffic</string>
     <string name="show_network_traffic_state">Status bar traffic monitor</string>

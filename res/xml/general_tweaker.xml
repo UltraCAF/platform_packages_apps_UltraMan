@@ -12,4 +12,12 @@
                 android:targetClass="com.ultra.manager.traffic.TrafficActivity" />
         </PreferenceScreen>
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/cat_other">
+        <com.ultra.manager.widgets.UltraSystemSettingSwitchPreference
+            android:key="screenshot_sound"
+            android:defaultValue="@bool/config_screenshot_shutter_sound"
+            android:title="@string/screenshot_shutter_sound_title"
+            android:icon="@drawable/ic_photo"/>
+    </PreferenceCategory>
 </PreferenceScreen>
