@@ -53,7 +53,7 @@ public final class rootChecker {
             if (result) {
                 Log.d(TAG, path + " contains su binary");
                 Log.d(TAG,CMDProcessor.runShellCommand(path + "su -v").toString());
-                if (CMDProcessor.runShellCommand(path + "su -v").toString().contains("SUPERSU")) {
+                if (CMDProcessor.runShellCommand(path + "su -v").toString().contains("SUPERSU") || CMDProcessor.runShellCommand(path + "su -v").toString().contains("MAGISKSU")) {
                     result = true;
                 }else{
                     result = false;
