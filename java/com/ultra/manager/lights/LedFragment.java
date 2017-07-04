@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import com.ultra.manager.R;
 import com.ultra.manager.utils.SettingsPreferenceFragment;
-import com.ultra.manager.utils.UltraSystemSettingSwitchPreference;
+import com.ultra.manager.widgets.UltraSystemSettingSwitchPreference;
 
 public class LedFragment extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -46,14 +46,7 @@ public class LedFragment extends SettingsPreferenceFragment implements
         PreferenceGroup NotifGroup = (PreferenceGroup) findPreference(KEY_NOTIFICATION_PULSE_CATE);
 
         // Battery Lights Options
-//        try {
-//           mBatLight.setChecked(Settings.System.getInt(getContext().getContentResolver(),
-//                   Settings.System.BATTERY_LIGHT_ENABLED) == 1);
-
            mBatLight.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.BATTERY_LIGHT_ENABLED, 0) == 1);
-//        } catch (Settings.SettingNotFoundException snfe) {
-//            Log.e(TAG, Settings.System.BATTERY_LIGHT_ENABLED + " not found");
-//        }
 
         // Pulsing Lights Options
         if (!getResources()
@@ -63,12 +56,8 @@ public class LedFragment extends SettingsPreferenceFragment implements
                getPreferenceScreen().removePreference(NotifGroup);
             }
         } else {
-//          try {
               mNotificationPulse.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                      Settings.System.NOTIFICATION_LIGHT_PULSE, 0) == 1);
-//          } catch (Settings.SettingNotFoundException snfe) {
-//              Log.e(TAG, Settings.System.NOTIFICATION_LIGHT_PULSE + " not found");
-//          }
         }
     }
 

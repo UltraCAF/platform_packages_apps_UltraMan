@@ -1,4 +1,4 @@
-package com.ultra.manager.system.root;
+package com.ultra.manager.root;
 
 
 import android.os.Bundle;

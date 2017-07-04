@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ultra.manager.system.traffic;
+package com.ultra.manager.traffic;
 
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -26,7 +26,7 @@ import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
-import com.ultra.manager.utils.CustomSeekBarPreference;
+import com.ultra.manager.widgets.CustomSeekBarPreference;
 
 import com.ultra.manager.R;
 import com.ultra.manager.utils.SettingsPreferenceFragment;

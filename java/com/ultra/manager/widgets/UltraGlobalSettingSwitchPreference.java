@@ -1,5 +1,5 @@
 
-package com.ultra.manager.utils;
+package com.ultra.manager.widgets;
 
 import android.content.Context;
 import android.provider.Settings;

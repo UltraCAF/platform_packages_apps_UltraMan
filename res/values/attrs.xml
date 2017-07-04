@@ -23,6 +23,6 @@
         <attr name="max" format="integer" />
         <attr name="units" format="string|reference" />
     </declare-styleable>
-
 </resources>
+
 

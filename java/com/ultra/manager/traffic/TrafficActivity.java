@@ -1,4 +1,4 @@
-package com.ultra.manager.system.traffic;
+package com.ultra.manager.traffic;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:androidprv="http://schemas.android.com/apk/prv/res/android"
     package="com.ultra.manager"
-    android:sharedUserId="android.uid.system"
     android:versionCode="1"
-    android:versionName="1.0">
+    android:versionName="1.0"
+    android:sharedUserId="android.uid.system">
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -42,11 +42,11 @@
         <service android:label="Service"
             android:enabled="true"
             android:exported="false"
-            android:name=".system.root.enablerService">
+            android:name=".root.enablerService">
         </service>
 
         <activity
-            android:name=".system.SystemActivity"
+            android:name=".TweakerActivity"
             android:label="@string/app_title">
             <intent-filter android:priority="1">
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
@@ -73,15 +73,16 @@
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".traffic.TrafficActivity" />
+
         <activity
-            android:name=".system.root.rootOptions"
-            android:label="@string/About_settings_title">
-            <intent-filter android:priority="3">
-                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+            android:name=".traffic.traffic"
+            android:label="@string/system_settings_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".system.MainActivity" />
-        <activity android:name=".system.traffic.TrafficActivity" />
     </application>
 
 </manifest>

@@ -93,16 +93,19 @@
     <string name="performance">Performance</string>
 
     <!-- System Options-->
-    <string name="system_summary">Some Settings related to UltraCAF rom .. you can Customize some system and kernel features</string>
     <string name="system_settings_title">System Settings</string>
     <string name="system_settings_summary">System Related settings .. add and remove features</string>
 
     <string name="system_root_title">Root Based Settings</string>
     <string name="system_root_summary">Manage Some Rom and kernel related root based settings</string>
 
+    <string name="changelog_title">UltraCAF ChangeLog</string>
+    <string name="changelog_summary">Check our rom and kernel latest changes, additions, and features</string>
+
     <!-- Status Bar -->
     <string name="cat_statusbar">StatusBar</string>
-    <string name="traffic_title">Network Traffic Indicator</string>
+    <string name="traffic_title">Network Traffic</string>
+    <string name="traffic_summary">Add Network Traffic Indicator To your Statusbar</string>
 
     <!-- Network traffic -->
     <string name="network_traffic_title">Network traffic</string>

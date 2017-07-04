@@ -22,7 +22,7 @@
         </PreferenceScreen>
 
         <!-- CAF Version  -->
-        <Preference android:key="caf_version"
+        <PreferenceScreen android:key="caf_version"
             android:icon="@drawable/ic_android"
             android:enabled="false"
             android:shouldDisableView="false"

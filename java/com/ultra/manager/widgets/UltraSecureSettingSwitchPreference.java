@@ -1,21 +1,21 @@
 
-package com.ultra.manager.utils;
+package com.ultra.manager.widgets;
 
-import android.content.Context;
 import android.provider.Settings;
+import android.content.Context;
 import android.support.v14.preference.SwitchPreference;
 import android.util.AttributeSet;
 
-public class UltraSystemSettingSwitchPreference extends SwitchPreference {
-    public UltraSystemSettingSwitchPreference(Context context, AttributeSet attrs, int defStyle) {
+public class UltraSecureSettingSwitchPreference extends SwitchPreference {
+    public UltraSecureSettingSwitchPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public UltraSystemSettingSwitchPreference(Context context, AttributeSet attrs) {
+    public UltraSecureSettingSwitchPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public UltraSystemSettingSwitchPreference(Context context) {
+    public UltraSecureSettingSwitchPreference(Context context) {
         super(context, null);
     }
 
@@ -26,7 +26,7 @@ public class UltraSystemSettingSwitchPreference extends SwitchPreference {
                 // It's already there, so the same as persisting
                 return true;
             }
-            Settings.System.putInt(getContext().getContentResolver(), getKey(), value ? 1 : 0);
+            Settings.Secure.putInt(getContext().getContentResolver(), getKey(), value ? 1 : 0);
             return true;
         }
         return false;
@@ -37,7 +37,7 @@ public class UltraSystemSettingSwitchPreference extends SwitchPreference {
         if (!shouldPersist()) {
             return defaultReturnValue;
         }
-        return Settings.System.getInt(getContext().getContentResolver(),
+        return Settings.Secure.getInt(getContext().getContentResolver(),
                 getKey(), defaultReturnValue ? 1 : 0) != 0;
     }
 }

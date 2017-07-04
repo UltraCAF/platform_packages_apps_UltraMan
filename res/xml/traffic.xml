@@ -39,13 +39,13 @@
         android:dependency="network_traffic_state"
         android:persistent="false" />
 
-    <com.ultra.manager.utils.UltraSystemSettingSwitchPreference
+    <com.ultra.manager.widgets.UltraSystemSettingSwitchPreference
         android:key="network_traffic_autohide"
         android:title="@string/network_traffic_autohide"
         android:summary="@string/network_traffic_autohide_summary"
         android:dependency="network_traffic_state" />
 
-    <com.ultra.manager.utils.CustomSeekBarPreference
+    <com.ultra.manager.widgets.CustomSeekBarPreference
         android:key="network_traffic_autohide_threshold"
         android:title="@string/network_traffic_autohide_threshold"
         android:max="100"
