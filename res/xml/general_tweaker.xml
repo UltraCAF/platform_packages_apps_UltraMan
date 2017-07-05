@@ -19,5 +19,14 @@
             android:defaultValue="@bool/config_screenshot_shutter_sound"
             android:title="@string/screenshot_shutter_sound_title"
             android:icon="@drawable/ic_photo"/>
+
+     <ListPreference
+        android:key="pref_scrollingcache"
+        android:dialogTitle="@string/pref_scrollingcache_title"
+        android:title="@string/pref_scrollingcache_title"
+        android:summary="@string/pref_scrollingcache_summary"
+        android:entries="@array/entries_scrollingcache"
+        android:entryValues="@array/values_scrollingcache" />
+
     </PreferenceCategory>
 </PreferenceScreen>
