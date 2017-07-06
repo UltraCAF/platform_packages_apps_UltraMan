@@ -7,15 +7,9 @@
     <string name="dlg_ok">OK</string>
     <string name="cancel">Cancel</string>
 
-    <!-- UP Settings Header item -->
-    <string name="UP_settings_title">System Updates</string>
-    <string name="UP_settings_summary">Tap to check For System Updates</string>
-    <string name="UP_settings_category" translatable="false">Updates</string>
-
     <!-- About Settings Header item -->
     <string name="About_settings_title">About UltraDevs</string>
     <string name="About_settings_summary">Get information about Us</string>
-    <string name="About_settings_category" translatable="false">About us</string>
 
     <!-- Leds Options Settings Header item -->
     <string name="leds_settings_title">Led Options</string>
@@ -111,7 +105,7 @@
     <string name="cat_other">Other System Settings</string>
 
     <!-- Screenshot shutter sound -->
-    <string name="screenshot_shutter_sound_title">Screenshot shutter sound</string>
+    <string name="screenshot_shutter_sound_title">Screenshot sound</string>
 
     <!-- Network traffic -->
     <string name="network_traffic_title">Network traffic</string>
