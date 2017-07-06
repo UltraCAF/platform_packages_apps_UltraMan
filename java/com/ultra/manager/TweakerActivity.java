@@ -8,6 +8,7 @@ import android.widget.ListAdapter;
 import java.util.List;
 
 import com.ultra.manager.R;
+import com.ultra.manager.utils.SettingsPreferenceFragment;
 
 public class TweakerActivity extends PreferenceActivity {
     private static List<Header> _headers;
@@ -54,6 +55,16 @@ public class TweakerActivity extends PreferenceActivity {
                     }
                 }
             }
+        }
+    }
+    public class TweakerFragment extends SettingsPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            String settings;
+            if(getArguments() != null) settings = getArguments().getString("settings");
         }
     }
 }
