@@ -6,5 +6,7 @@
     <color name="dt_tab_inactive_text_color">@*android:color/notification_text_default_color</color>
     <color name="dt_tab_background_color">@android:color/transparent</color>
     <color name="card_background">#fffafafa</color>
+    <color name="card_background_grey">#e7e7e7</color>
+    <color name="square_background">#f5f5f5</color>
 </resources>
 

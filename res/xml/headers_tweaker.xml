@@ -23,7 +23,7 @@
         android:id="@+id/changelog"
         android:title="@string/changelog_title"
         android:summary="@string/changelog_summary"
-        android:fragment="com.ultra.manager.root.RootFragment"
+        android:fragment="com.ultra.manager.ChangeLogFragment"
         android:icon="@drawable/ic_log">
         <extra
             android:name="settings"
