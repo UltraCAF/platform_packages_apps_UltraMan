@@ -19,7 +19,11 @@
          android:key="systemappremover"
          android:fragment="com.ultra.manager.AppRemover.SystemappRemover"
          android:layout="@layout/preference_systemappremover"
-         android:title="@string/system_app_remover" />
-
+         android:title="@string/system_app_remover">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetPackage="com.ultra.manager"
+                android:targetClass="com.ultra.manager.AppRemover.AppRemoverActivity" />
+      </PreferenceScreen>
     </PreferenceCategory>
 </PreferenceScreen>

@@ -75,6 +75,7 @@
         </activity>
 
         <activity android:name=".traffic.TrafficActivity" />
+        <activity android:name=".AppRemover.AppRemoverActivity" />
     </application>
 
 </manifest>
