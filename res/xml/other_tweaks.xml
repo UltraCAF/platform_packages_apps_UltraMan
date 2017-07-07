@@ -15,5 +15,11 @@
         android:entries="@array/entries_scrollingcache"
         android:entryValues="@array/values_scrollingcache" />
 
+      <PreferenceScreen
+         android:key="systemappremover"
+         android:fragment="com.ultra.manager.AppRemover.SystemappRemover"
+         android:layout="@layout/preference_systemappremover"
+         android:title="@string/system_app_remover" />
+
     </PreferenceCategory>
 </PreferenceScreen>
