@@ -10,6 +10,9 @@ import java.util.List;
 import com.ultra.manager.R;
 import com.ultra.manager.utils.SettingsPreferenceFragment;
 
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.logging.MetricsLogger;
+
 public class TweakerActivity extends PreferenceActivity {
     private static List<Header> _headers;
     @Override
@@ -66,5 +69,9 @@ public class TweakerActivity extends PreferenceActivity {
             String settings;
             if(getArguments() != null) settings = getArguments().getString("settings");
         }
+        protected int getMetricsCategory() {
+            return MetricsEvent.CAF;
+        }
+
     }
 }

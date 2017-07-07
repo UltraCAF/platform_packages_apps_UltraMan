@@ -16,6 +16,8 @@ import android.os.SystemProperties;
 import com.ultra.manager.utils.SettingsPreferenceFragment;
 import com.ultra.manager.widgets.UltraSystemSettingSwitchPreference;
 
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.logging.MetricsLogger;
 
 public class SystemOtherSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -63,6 +65,11 @@ public class SystemOtherSettings extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.CAF;
     }
 
 }

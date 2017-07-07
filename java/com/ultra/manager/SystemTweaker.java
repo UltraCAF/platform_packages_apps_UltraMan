@@ -19,32 +19,27 @@ package com.ultra.manager;
 //import android.app.AlertDialog;
 //import android.app.Dialog;
 //import android.app.DialogFragment;
+
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.DialogInterface;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v14.preference.SwitchPreference;
+import android.support.v14.preference.PreferenceFragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.preference.ListPreference;
-import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-//import android.widget.Toast;
 
+import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.ultra.manager.R;
-import com.ultra.manager.about.AboutFragment;
 import com.ultra.manager.others.SystemOtherSettings;
-import com.ultra.manager.root.RootFragment;
 import com.ultra.manager.statusbar.statusbar;
 import com.ultra.manager.utils.SettingsPreferenceFragment;
-import com.ultra.manager.widgets.UltraSystemSettingSwitchPreference;
+
+//import android.widget.Toast;
 
 public class SystemTweaker extends SettingsPreferenceFragment {
 
@@ -57,6 +52,10 @@ public class SystemTweaker extends SettingsPreferenceFragment {
 
     static Bundle mSavedState;
 
+
+    public static SystemTweaker newInstance() {
+        return new SystemTweaker();
+    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mContainer = container;
@@ -87,7 +86,6 @@ public class SystemTweaker extends SettingsPreferenceFragment {
         super.onResume();
 //        mContainer.setPadding(30, 30, 30, 30);
     }
-
 /*
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -184,4 +182,13 @@ public class SystemTweaker extends SettingsPreferenceFragment {
         return titleString;
     }
 
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.CAF;
+    }
+
+    @Override
+    public Fragment getCallbackFragment() {
+        return this;
+    }
 }

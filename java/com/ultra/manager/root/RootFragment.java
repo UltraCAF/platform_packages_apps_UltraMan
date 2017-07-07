@@ -14,6 +14,9 @@ import com.ultra.manager.utils.rootChecker;
 
 import java.io.File;
 
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.logging.MetricsLogger;
+
 import static com.ultra.manager.utils.TouchPanelChecker.TPanel;
 
 /**
@@ -172,6 +175,11 @@ public class RootFragment extends SettingsPreferenceFragment implements
             }
         }
         return false;
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.CAF;
     }
 }
 

@@ -28,6 +28,9 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
 import com.ultra.manager.widgets.CustomSeekBarPreference;
 
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.logging.MetricsLogger;
+
 import com.ultra.manager.R;
 import com.ultra.manager.utils.SettingsPreferenceFragment;
 
@@ -176,6 +179,11 @@ public class Traffic extends SettingsPreferenceFragment
 
     private boolean getBit(int intNumber, int intMask) {
         return (intNumber & intMask) == intMask;
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.CAF;
     }
 }
 

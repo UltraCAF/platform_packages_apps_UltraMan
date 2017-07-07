@@ -16,6 +16,9 @@ import com.ultra.manager.R;
 import com.ultra.manager.utils.SettingsPreferenceFragment;
 import com.ultra.manager.widgets.UltraSystemSettingSwitchPreference;
 
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.logging.MetricsLogger;
+
 public class LedFragment extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
@@ -78,6 +81,10 @@ public class LedFragment extends SettingsPreferenceFragment implements
                 return true;
         }
         return false;
+    }
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.CAF;
     }
 }
 

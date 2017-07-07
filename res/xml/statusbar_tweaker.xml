@@ -3,10 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/cat_statusbar">
         <PreferenceScreen
-            android:key="traffic"
+            android:fragment="com.ultra.manager.traffic.Traffic"
             android:icon="@drawable/ic_traffic"
-            android:title="@string/traffic_title"
-            android:summary="@string/traffic_summary">
+            android:key="traffic"
+            android:summary="@string/traffic_summary"
+            android:title="@string/traffic_title">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:targetPackage="com.ultra.manager"

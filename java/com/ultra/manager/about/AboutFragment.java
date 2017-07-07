@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import com.ultra.manager.R;
 import com.ultra.manager.utils.SettingsPreferenceFragment;
 
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.logging.MetricsLogger;
+
 public class AboutFragment extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
@@ -50,5 +53,9 @@ public class AboutFragment extends SettingsPreferenceFragment implements
         } catch (RuntimeException e) {
             // No recovery
         }
+    }
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.CAF;
     }
 }

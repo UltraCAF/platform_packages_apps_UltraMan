@@ -7,23 +7,23 @@
             android:title="@string/screenshot_shutter_sound_title"
             android:icon="@drawable/ic_photo"/>
 
-     <ListPreference
-        android:key="pref_scrollingcache"
-        android:dialogTitle="@string/pref_scrollingcache_title"
-        android:title="@string/pref_scrollingcache_title"
-        android:summary="@string/pref_scrollingcache_summary"
-        android:entries="@array/entries_scrollingcache"
-        android:entryValues="@array/values_scrollingcache" />
+        <ListPreference
+            android:key="pref_scrollingcache"
+            android:dialogTitle="@string/pref_scrollingcache_title"
+            android:title="@string/pref_scrollingcache_title"
+            android:summary="@string/pref_scrollingcache_summary"
+            android:entries="@array/entries_scrollingcache"
+            android:entryValues="@array/values_scrollingcache" />
 
-      <PreferenceScreen
-         android:key="systemappremover"
-         android:fragment="com.ultra.manager.AppRemover.SystemappRemover"
-         android:layout="@layout/preference_systemappremover"
-         android:title="@string/system_app_remover">
+        <PreferenceScreen
+            android:key="systemappremover"
+            android:icon="@drawable/ic_systemappremover"
+            android:title="@string/system_app_remover"
+            android:summary="@string/system_app_remover_summary">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:targetPackage="com.ultra.manager"
                 android:targetClass="com.ultra.manager.AppRemover.AppRemoverActivity" />
-      </PreferenceScreen>
+        </PreferenceScreen>
     </PreferenceCategory>
 </PreferenceScreen>
