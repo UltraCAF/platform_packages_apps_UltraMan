@@ -4,6 +4,7 @@ package com.ultra.manager.root;
 import android.os.Bundle;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v4.app.Fragment;
+import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 
 import com.ultra.manager.R;
@@ -26,6 +27,7 @@ public class RootFragment extends SettingsPreferenceFragment implements
     private SwitchPreference mMSMhotplug;
     private SwitchPreference mAluCard;
     private SwitchPreference mFastCharge;
+    private ListPreference mGoverList;
 
     private String DOUBLETAP2WAKE = "dt2w";
     private String ARCHPOWER = "archpower";
@@ -37,6 +39,9 @@ public class RootFragment extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.perf_root);
+
+        mGoverList = (ListPreference) findPreference("govers");
+        mGoverList.setOnPreferenceChangeListener(this);
 
         mdt2w = (SwitchPreference) findPreference(DOUBLETAP2WAKE);
         mdt2w.setOnPreferenceChangeListener(this);
@@ -111,12 +116,16 @@ public class RootFragment extends SettingsPreferenceFragment implements
                     mFastCharge.setEnabled(false);
                 }
             }
+            if (mGoverList != null) {
+                mGoverList.setValue(CMDProcessor.runSuCommand("cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor").getStdout());
+            }
         }else{
             mdt2w.setEnabled(false);
             mArchPower.setEnabled(false);
             mAluCard.setEnabled(false);
             mMSMhotplug.setEnabled(false);
             mFastCharge.setEnabled(false);
+            mGoverList.setEnabled(false);
         }
     }
     @Override
@@ -155,6 +164,10 @@ public class RootFragment extends SettingsPreferenceFragment implements
             if (preference == mFastCharge) {
                 boolean value = (Boolean) newValue;
                 CMDProcessor.runSuCommand("echo " + (value ? 1 : 0) + " > /sys/kernel/fast_charge/force_fast_charge");
+                return true;
+            }
+            if (preference == mGoverList){
+                CMDProcessor.runSuCommand("echo " + newValue.toString() + " > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor");
                 return true;
             }
         }
