@@ -180,7 +180,7 @@ public class SystemTweaker extends SettingsPreferenceFragment {
         String titleString[];
         titleString = new String[]{
                 getString(R.string.cat_statusbar),
-                getString(R.string.cat_other)
+                getString(R.string.cat_other),
                 getString(R.string.battery_settings_title)};
         return titleString;
     }
