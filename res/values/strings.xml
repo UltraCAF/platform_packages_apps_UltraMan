@@ -155,7 +155,7 @@
     <string name="system_app_remover_summary">You can Remove not needed System apps</string>
 
     <!-- Battery settings -->
-    <string name="battery_settings_title">Battery settings</string>
+    <string name="battery_settings_title">Battery icon settings</string>
     <string name="battery_settings_summary">Change battery icon, percentage</string>
     <!-- Battery icon options -->
     <string name="status_bar_battery_style_title">Battery status style</string>
