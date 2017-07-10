@@ -49,7 +49,9 @@ public class LedFragment extends SettingsPreferenceFragment implements
         PreferenceGroup NotifGroup = (PreferenceGroup) findPreference(KEY_NOTIFICATION_PULSE_CATE);
 
         // Battery Lights Options
-           mBatLight.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.BATTERY_LIGHT_ENABLED, 0) == 1);
+        int SetBatLight = Settings.System.getInt(getContentResolver(),
+                Settings.System.BATTERY_LIGHT_ENABLED,0);
+           mBatLight.setChecked(SetBatLight != 0);
 
         // Pulsing Lights Options
         if (!getResources()
@@ -59,8 +61,9 @@ public class LedFragment extends SettingsPreferenceFragment implements
                getPreferenceScreen().removePreference(NotifGroup);
             }
         } else {
-              mNotificationPulse.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
-                     Settings.System.NOTIFICATION_LIGHT_PULSE, 0) == 1);
+            int SetNotificationLight = Settings.System.getInt(getContentResolver(),
+                    Settings.System.NOTIFICATION_LIGHT_PULSE,0);
+            mNotificationPulse.setChecked(SetNotificationLight != 0);
         }
     }
 

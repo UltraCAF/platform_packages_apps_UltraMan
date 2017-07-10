@@ -38,8 +38,12 @@ public class SystemOtherSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.other_tweaks);
         mScreenShutter = (UltraSystemSettingSwitchPreference) getPreferenceScreen().findPreference(KEY_SCREENSHOT_SOUND);
         mScreenShutter.setOnPreferenceChangeListener(this);
-        mScreenShutter.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.SCREENSHOT_SOUND, 0) == 1);
+
+        int SetScreenShutter = Settings.System.getInt(getContentResolver(),
+                Settings.System.SCREENSHOT_SOUND,0);
+
+        mScreenShutter.setChecked(SetScreenShutter != 1);
+
 
         mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
         mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
