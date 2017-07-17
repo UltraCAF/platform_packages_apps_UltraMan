@@ -45,6 +45,7 @@
     <string name="device_info_default">Unknown</string>
 
     <!-- Root Settings-->
+    <string name="root_enable">Enable Root Options</string>
     <string name="root_category_governors">Kernel Governor</string>
     <string name="root_category_dt2w">Kernel Dt2W</string>
     <string name="root_category_power">Power Options</string>

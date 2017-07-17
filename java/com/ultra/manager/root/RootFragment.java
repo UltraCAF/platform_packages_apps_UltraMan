@@ -30,6 +30,7 @@ public class RootFragment extends SettingsPreferenceFragment implements
     private SwitchPreference mMSMhotplug;
     private SwitchPreference mAluCard;
     private SwitchPreference mFastCharge;
+    private SwitchPreference mROOTENABLE;
     private ListPreference mGoverList;
 
     private String DOUBLETAP2WAKE = "dt2w";
@@ -37,11 +38,14 @@ public class RootFragment extends SettingsPreferenceFragment implements
     private String MSMHOTPLUG = "msmhotplug";
     private String ALUCARD = "alucard";
     private String USBFASTCHARGE = "usbfastcharge";
+    private String ROOT_ENABLER = "root_enable";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.perf_root);
+
+        mROOTENABLE = (SwitchPreference) findPreference(ROOT_ENABLER);
 
         mGoverList = (ListPreference) findPreference("govers");
         mGoverList.setOnPreferenceChangeListener(this);
@@ -61,6 +65,7 @@ public class RootFragment extends SettingsPreferenceFragment implements
         mFastCharge = (SwitchPreference) findPreference(USBFASTCHARGE);
         mFastCharge.setOnPreferenceChangeListener(this);
         if (rootChecker.isDeviceRooted() == true) {
+            mROOTENABLE.setEnabled(true);
             if (mdt2w != null) {
                 if (TPanel().toString() != null) {
                     if (CMDProcessor.runSuCommand("cat " + TPanel().toString()).getStdout().contains("1")) {
@@ -129,6 +134,7 @@ public class RootFragment extends SettingsPreferenceFragment implements
             mMSMhotplug.setEnabled(false);
             mFastCharge.setEnabled(false);
             mGoverList.setEnabled(false);
+            mROOTENABLE.setEnabled(false);
         }
     }
     @Override

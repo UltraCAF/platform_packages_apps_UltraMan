@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <PreferenceCategory android:title="@string/root_category_governors">
+    <SwitchPreference android:key="root_enable" android:title="@string/root_enable" />
+    <PreferenceCategory android:title="@string/root_category_governors" android:dependency="root_enable">
         <ListPreference
             android:defaultValue="180"
             android:entries="@array/gover"
@@ -13,21 +13,21 @@
             android:summary="@string/root_governors_selector_summary"/>
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/root_category_dt2w">
+    <PreferenceCategory android:title="@string/root_category_dt2w" android:dependency="root_enable">
         <SwitchPreference
             android:key="dt2w"
             android:title="@string/root_dt2w_title"
             android:summary="@string/root_dt2w_summary"/>
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/root_category_power">
+    <PreferenceCategory android:title="@string/root_category_power" android:dependency="root_enable">
         <SwitchPreference
             android:key="archpower"
             android:title="@string/root_power_archpower_title"
             android:summary="@string/root_power_archpower_summary"/>
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/root_category_hotplug">
+    <PreferenceCategory android:title="@string/root_category_hotplug" android:dependency="root_enable">
         <SwitchPreference
             android:key="msmhotplug"
             android:title="@string/root_msmHP_title"
@@ -39,7 +39,7 @@
             android:summary="@string/root_alu_summary"/>
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/root_category_usb">
+    <PreferenceCategory android:title="@string/root_category_usb" android:dependency="root_enable">
         <SwitchPreference android:key="usbfastcharge"
             android:title="@string/root_usbFC_title"
             android:summary="@string/root_usbFC_summary" />
