@@ -5,8 +5,7 @@
         <com.ultra.manager.widgets.UltraSystemSettingSwitchPreference
             android:key="screenshot_sound"
             android:title="@string/screenshot_shutter_sound_title"
-            android:icon="@drawable/ic_photo"
-            android:defaultValue="true"/>
+            android:icon="@drawable/ic_photo" />
 
         <ListPreference
             android:key="pref_scrollingcache"

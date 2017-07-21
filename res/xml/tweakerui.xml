@@ -1,32 +1,20 @@
-<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
-    <header
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
         android:id="@+id/system_tweaks"
         android:title="@string/system_settings_title"
         android:summary="@string/system_settings_summary"
         android:fragment="com.ultra.manager.SystemTweaker"
-        android:icon="@drawable/ic_perm_device_information">
-        <extra
-            android:name="settings"
-            android:value="SYSTEM" />
-    </header>
-    <header
+        android:icon="@drawable/ic_perm_device_information" />
+    <Preference
         android:id="@+id/root_tweaks"
         android:title="@string/system_root_title"
         android:summary="@string/system_root_summary"
         android:fragment="com.ultra.manager.root.RootFragment"
-        android:icon="@drawable/ic_code">
-        <extra
-            android:name="settings"
-            android:value="ROOT" />
-    </header>
-    <header
+        android:icon="@drawable/ic_code"/>
+    <Preference
         android:id="@+id/changelog"
         android:title="@string/changelog_title"
         android:summary="@string/changelog_summary"
         android:fragment="com.ultra.manager.ChangeLogFragment"
-        android:icon="@drawable/ic_log">
-        <extra
-            android:name="settings"
-            android:value="CHANGELOG" />
-    </header>
-</preference-headers>
+        android:icon="@drawable/ic_log"/>
+</PreferenceScreen>

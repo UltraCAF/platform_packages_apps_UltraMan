@@ -29,8 +29,10 @@ import android.support.v7.preference.PreferenceScreen;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.ultra.manager.PowerMenu.PowerMenuConstants;
-import com.ultra.manager.R;
-import com.ultra.manager.utils.SettingsPreferenceFragment;
+
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;

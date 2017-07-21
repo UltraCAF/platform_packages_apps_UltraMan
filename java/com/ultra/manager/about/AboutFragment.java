@@ -7,11 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ultra.manager.R;
-import com.ultra.manager.utils.SettingsPreferenceFragment;
-
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
-import com.android.internal.logging.MetricsLogger;
+import com.android.settings.Utils;
 
 public class AboutFragment extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {

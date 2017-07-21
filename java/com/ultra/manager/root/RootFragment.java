@@ -8,9 +8,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 
-import com.ultra.manager.R;
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.settings.Utils;
+
 import com.ultra.manager.utils.CMDProcessor;
-import com.ultra.manager.utils.SettingsPreferenceFragment;
 import com.ultra.manager.utils.rootChecker;
 
 import java.io.File;

@@ -10,10 +10,13 @@ import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
-import com.ultra.manager.R;
+
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
+
 import android.os.SystemProperties;
 
-import com.ultra.manager.utils.SettingsPreferenceFragment;
 import com.ultra.manager.widgets.UltraSystemSettingSwitchPreference;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -38,8 +41,12 @@ public class SystemOtherSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.other_tweaks);
         mScreenShutter = (UltraSystemSettingSwitchPreference) getPreferenceScreen().findPreference(KEY_SCREENSHOT_SOUND);
         mScreenShutter.setOnPreferenceChangeListener(this);
-        mScreenShutter.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.SCREENSHOT_SOUND, 0) == 1);
+
+        try {
+           mScreenShutter.setChecked(Settings.System.getInt(getContext().getContentResolver(),
+                   Settings.System.SCREENSHOT_SOUND) == 1);
+        } catch (Settings.SettingNotFoundException snfe) {
+        }
 
         mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
         mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,

@@ -14,15 +14,15 @@ import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 
-import com.ultra.manager.R;
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.settings.Utils;
 
 import android.content.ContentResolver;
 import android.provider.Settings;
 
-import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.logging.MetricsLogger;
-
-import com.ultra.manager.utils.SettingsPreferenceFragment;
 
 public class statusbar extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {

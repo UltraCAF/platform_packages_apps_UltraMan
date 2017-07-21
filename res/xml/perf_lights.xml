@@ -4,7 +4,6 @@
         <com.ultra.manager.widgets.UltraSystemSettingSwitchPreference
             android:key="battery_light_enabled"
             android:title="@string/battery_settings_title"
-            android:defaultValue="true"
             android:summaryOn="@string/battery_settings_summary_on"
             android:summaryOff="@string/battery_settings_summary_off"/>
     </PreferenceCategory>
@@ -13,7 +12,6 @@
         <com.ultra.manager.widgets.UltraSecureSettingSwitchPreference
             android:key="notification_pulse"
             android:title="@string/notification_settings_title"
-            android:defaultValue="true"
             android:summaryOn="@string/notification_settings_summary_on"
             android:summaryOff="@string/notification_settings_summary_off" />
     </PreferenceCategory>

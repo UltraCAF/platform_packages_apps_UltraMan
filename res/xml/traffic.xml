@@ -48,9 +48,6 @@
     <com.ultra.manager.widgets.CustomSeekBarPreference
         android:key="network_traffic_autohide_threshold"
         android:title="@string/network_traffic_autohide_threshold"
-        android:max="100"
-        caf:min="0"
-        caf:units="kB/s"
         android:dependency="network_traffic_autohide"
         android:persistent="false" />
 

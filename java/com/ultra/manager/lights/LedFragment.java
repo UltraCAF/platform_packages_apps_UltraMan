@@ -12,8 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ultra.manager.R;
-import com.ultra.manager.utils.SettingsPreferenceFragment;
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
+
 import com.ultra.manager.widgets.UltraSystemSettingSwitchPreference;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -48,8 +50,12 @@ public class LedFragment extends SettingsPreferenceFragment implements
 
         PreferenceGroup NotifGroup = (PreferenceGroup) findPreference(KEY_NOTIFICATION_PULSE_CATE);
 
-        // Battery Lights Options
-           mBatLight.setChecked(Settings.System.getInt(getActivity().getContentResolver(), Settings.System.BATTERY_LIGHT_ENABLED, 0) == 1);
+        try {
+           mBatLight.setChecked(Settings.System.getInt(getContext().getContentResolver(),
+                   Settings.System.BATTERY_LIGHT_ENABLED) == 1);
+        } catch (Settings.SettingNotFoundException snfe) {
+            Log.e(TAG, Settings.System.BATTERY_LIGHT_ENABLED + " not found");
+        }
 
         // Pulsing Lights Options
         if (!getResources()

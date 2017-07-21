@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <SwitchPreference android:key="root_enable" android:title="@string/root_enable" />
+    <SwitchPreference android:key="root_enable" android:title="@string/root_enable" android:persistent="true" />
     <PreferenceCategory android:title="@string/root_category_governors" android:dependency="root_enable">
         <ListPreference
             android:defaultValue="180"
@@ -50,11 +50,7 @@
             android:key="systemappremover"
             android:icon="@drawable/ic_systemappremover"
             android:title="@string/system_app_remover"
-            android:summary="@string/system_app_remover_summary">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetPackage="com.ultra.manager"
-                android:targetClass="com.ultra.manager.AppRemover.AppRemoverActivity" />
-        </PreferenceScreen>
+            android:summary="@string/system_app_remover_summary"
+            android:fragment="com.ultra.manager.AppRemover.SystemappRemover" />
     </PreferenceCategory>
 </PreferenceScreen>
