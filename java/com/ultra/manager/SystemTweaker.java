@@ -34,6 +34,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.ultra.manager.PowerMenu.PowerMenuSettings;
 import com.ultra.manager.R;
 import com.ultra.manager.others.SystemOtherSettings;
 import com.ultra.manager.statusbar.statusbar;
@@ -156,6 +157,7 @@ public class SystemTweaker extends SettingsPreferenceFragment {
             super(fm);
             frags[0] = new statusbar();
             frags[1] = new SystemOtherSettings();
+            frags[2] = new PowerMenuSettings();
         }
 
         @Override
@@ -178,7 +180,8 @@ public class SystemTweaker extends SettingsPreferenceFragment {
         String titleString[];
         titleString = new String[]{
                 getString(R.string.cat_statusbar),
-                getString(R.string.cat_other)};
+                getString(R.string.cat_other),
+                getString(R.string.power_menu_title)};
         return titleString;
     }
 
