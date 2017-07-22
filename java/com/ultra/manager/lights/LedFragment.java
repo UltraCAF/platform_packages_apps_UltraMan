@@ -50,12 +50,8 @@ public class LedFragment extends SettingsPreferenceFragment implements
 
         PreferenceGroup NotifGroup = (PreferenceGroup) findPreference(KEY_NOTIFICATION_PULSE_CATE);
 
-        try {
-           mBatLight.setChecked(Settings.System.getInt(getContext().getContentResolver(),
-                   Settings.System.BATTERY_LIGHT_ENABLED) == 1);
-        } catch (Settings.SettingNotFoundException snfe) {
-            Log.e(TAG, Settings.System.BATTERY_LIGHT_ENABLED + " not found");
-        }
+        mBatLight.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.BATTERY_LIGHT_ENABLED, 0) == 1);
 
         // Pulsing Lights Options
         if (!getResources()
