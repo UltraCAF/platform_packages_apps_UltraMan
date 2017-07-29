@@ -2,7 +2,6 @@ package com.ultra.manager.root;
 
 
 import android.os.Bundle;
-import android.support.v7.preference.PreferenceCategory;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v4.app.Fragment;
 import android.support.v7.preference.ListPreference;
@@ -36,7 +35,6 @@ public class RootFragment extends SettingsPreferenceFragment implements
     private SwitchPreference mFastCharge;
     private SwitchPreference mROOTENABLE;
     private ListPreference mGoverList;
-    private PreferenceCategory mAPPCategory;
 
     private String DOUBLETAP2WAKE = "dt2w";
     private String ARCHPOWER = "archpower";
@@ -44,7 +42,6 @@ public class RootFragment extends SettingsPreferenceFragment implements
     private String ALUCARD = "alucard";
     private String USBFASTCHARGE = "usbfastcharge";
     private String ROOT_ENABLER = "root_enable";
-    private String SYSTEM_APP = "systemappremover_key";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,9 +67,6 @@ public class RootFragment extends SettingsPreferenceFragment implements
 
         mFastCharge = (SwitchPreference) findPreference(USBFASTCHARGE);
         mFastCharge.setOnPreferenceChangeListener(this);
-
-        mAPPCategory = (PreferenceCategory) findPreference(SYSTEM_APP);
-
         if (rootChecker.isDeviceRooted() == true) {
             mROOTENABLE.setEnabled(true);
             if (mdt2w != null) {
@@ -136,7 +130,6 @@ public class RootFragment extends SettingsPreferenceFragment implements
             if (mGoverList != null) {
                 mGoverList.setValue(CMDProcessor.runSuCommand("cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor").getStdout());
             }
-            mAPPCategory.setEnabled(true);
         }else{
             mdt2w.setEnabled(false);
             mArchPower.setEnabled(false);
@@ -145,7 +138,6 @@ public class RootFragment extends SettingsPreferenceFragment implements
             mFastCharge.setEnabled(false);
             mGoverList.setEnabled(false);
             mROOTENABLE.setEnabled(false);
-            mAPPCategory.setEnabled(false);
         }
     }
     @Override

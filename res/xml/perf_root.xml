@@ -45,7 +45,7 @@
             android:summary="@string/root_usbFC_summary" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/system_app_remover" android:key="systemappremover_key">
+    <PreferenceCategory android:title="@string/system_app_remover">
         <PreferenceScreen
             android:key="systemappremover"
             android:icon="@drawable/ic_systemappremover"
