@@ -12,9 +12,6 @@
     <string name="About_settings_summary">Get information about Us</string>
 
     <!-- Leds Options Settings Header item -->
-    <string name="leds_settings_title">Led Options</string>
-    <string name="leds_settings_summary">Manage your phone Battery/Notification Leds</string>
-
     <string name="battery_settings_category">Battery Lights</string>
     <string name="battery_settings_title">Battery Lights</string>
     <string name="battery_settings_summary_on">Battery Light leds is ON</string>
@@ -87,23 +84,9 @@
     <string name="powersave">PowerSave</string>
     <string name="performance">Performance</string>
 
-    <!-- System Options-->
-    <string name="system_settings_title">System Settings</string>
-    <string name="system_settings_summary">System Related settings .. add and remove features</string>
-
-    <string name="system_root_title">Root Based Settings</string>
-    <string name="system_root_summary">Manage Some Rom and kernel related root based settings</string>
-
-    <string name="changelog_title">UltraCAF ChangeLog</string>
-    <string name="changelog_summary">Check our rom and kernel latest changes, additions, and features</string>
-
     <!-- Status Bar -->
-    <string name="cat_statusbar">StatusBar</string>
     <string name="traffic_title">Network Traffic</string>
     <string name="traffic_summary">Add Network Traffic Indicator To your Statusbar</string>
-
-    <!-- Others -->
-    <string name="cat_other">Other System Settings</string>
 
     <!-- Screenshot shutter sound -->
     <string name="screenshot_shutter_sound_title">Screenshot sound</string>
@@ -186,5 +169,20 @@
     <string name="power_menu_bug_report_title">Bug report</string>
     <string name="power_menu_sound_title">Sound panel</string>
     <string name="power_menu_bug_report_disabled">Bug reporting is disabled in development settings</string>
+
+    <string name="app_intro">Welcome To UltraMan App from UltraCAF Team .. This App designed to manage some additional feature added to our UltraCAF rom .. Enjoy!</string>
+    <string name="System_title">System Settings</string>
+    <string name="System_summary">Some System Tweaks</string>
+    <string name="Status_title">Status bar Settings</string>
+    <string name="Status_summary">Tweaks for status bar</string>
+    <string name="lights_title">Battery Lights Settings</string>
+    <string name="lights_summary">Switch battery lights on/off</string>
+    <string name="power_title">Power Menu</string>
+    <string name="power_summary">Manage your Power Menu buttons</string>
+    <string name="root_title">Root Based Settings</string>
+    <string name="root_summary">Manage Some Rom and Kernel root-based Options</string>
+    <string name="changelog_title">UltraCAF ChangeLog</string>
+    <string name="changelog_summary">Check our rom and Kernel latest Changes, additions, and features</string>
+
 </resources>
 

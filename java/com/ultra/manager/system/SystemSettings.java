@@ -1,4 +1,4 @@
-package com.ultra.manager.others;
+package com.ultra.manager.system;
 
 /**
  * Created by ahmedhady on 06/07/17.
@@ -22,7 +22,7 @@ import com.ultra.manager.widgets.UltraSystemSettingSwitchPreference;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.logging.MetricsLogger;
 
-public class SystemOtherSettings extends SettingsPreferenceFragment implements
+public class SystemSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private SwitchPreference mScreenShutter;
@@ -38,7 +38,7 @@ public class SystemOtherSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.other_tweaks);
+        addPreferencesFromResource(R.xml.system_tweaks);
         mScreenShutter = (UltraSystemSettingSwitchPreference) getPreferenceScreen().findPreference(KEY_SCREENSHOT_SOUND);
         mScreenShutter.setOnPreferenceChangeListener(this);
 

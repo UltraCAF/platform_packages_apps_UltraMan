@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference android:summary="@string/app_intro" />
+
+    <Preference android:title="@string/System_title"
+        android:summary="@string/System_summary"
+        android:icon="@drawable/ic_android"
+        android:fragment="com.ultra.manager.system.SystemSettings"/>
+
+    <Preference android:title="@string/Status_title"
+        android:summary="@string/Status_summary"
+        android:icon="@drawable/ic_status"
+        android:fragment="com.ultra.manager.statusbar.statusbar"/>
+
+    <Preference android:title="@string/buttons_pref_title"
+        android:summary="@string/buttons_pref_summary"
+        android:icon="@drawable/ic_settings_buttons"
+        android:enabled="false"
+        android:fragment="org.ultradevs.ultraman.fragments.Buttons"/>
+
+    <Preference android:title="@string/lights_title"
+        android:summary="@string/lights_summary"
+        android:icon="@drawable/ic_lights"
+        android:fragment="com.ultra.manager.lights.LedFragment"/>
+
+    <Preference android:title="@string/power_title"
+        android:summary="@string/power_summary"
+        android:icon="@drawable/ic_settings_power"
+        android:fragment="com.ultra.manager.PowerMenu.PowerMenuSettings"/>
+
+    <Preference android:title="@string/root_title"
+        android:summary="@string/root_summary"
+        android:icon="@drawable/ic_code"
+        android:enabled="false"
+        android:fragment="org.ultradevs.ultraman.fragments.root.RootSettings"/>
+
+    <Preference android:title="@string/changelog_title"
+        android:summary="@string/changelog_summary"
+        android:icon="@drawable/ic_log"
+        android:fragment="com.ultra.manager.ChangeLogFragment"/>
+
+</PreferenceScreen>

@@ -17,7 +17,7 @@ public class UltraMan extends SettingsPreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.tweakerui);
+        addPreferencesFromResource(R.xml.main);
     }
     protected int getMetricsCategory() {
             return MetricsEvent.CAF;

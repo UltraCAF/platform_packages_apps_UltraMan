@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/cat_other">
+    <PreferenceCategory android:title="@string/System_title">
         <com.ultra.manager.widgets.UltraSystemSettingSwitchPreference
             android:key="screenshot_sound"
             android:title="@string/screenshot_shutter_sound_title"
