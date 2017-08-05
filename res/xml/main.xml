@@ -16,8 +16,7 @@
     <Preference android:title="@string/buttons_pref_title"
         android:summary="@string/buttons_pref_summary"
         android:icon="@drawable/ic_settings_buttons"
-        android:enabled="false"
-        android:fragment="org.ultradevs.ultraman.fragments.Buttons"/>
+        android:fragment="com.ultra.manager.Buttons.ButtonsSettings"/>
 
     <Preference android:title="@string/lights_title"
         android:summary="@string/lights_summary"
