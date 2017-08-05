@@ -22,7 +22,7 @@
     <Preference android:title="@string/lights_title"
         android:summary="@string/lights_summary"
         android:icon="@drawable/ic_lights"
-        android:fragment="com.ultra.manager.lights.LedFragment"/>
+        android:fragment="com.ultra.manager.lights.Lights"/>
 
     <Preference android:title="@string/power_title"
         android:summary="@string/power_summary"
