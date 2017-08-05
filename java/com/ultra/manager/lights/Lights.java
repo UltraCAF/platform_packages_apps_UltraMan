@@ -37,12 +37,19 @@ import com.android.settings.Utils;
 public class Lights extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "lights";
+    private static final String KEY_NOTIFICATION_LED = "notification_light";
 
+    private Preference mNotif;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.lights);
+        mNotif = (Preference) getPreferenceScreen().findPreference(KEY_NOTIFICATION_LED);
+        if (!getResources()
+                .getBoolean(com.android.internal.R.bool.config_intrusiveNotificationLed)) {
+            mNotif.setEnabled(false);
+        }
 
         ContentResolver resolver = getActivity().getContentResolver();
     }
