@@ -58,7 +58,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_NAVIGATION_BAR         = "navigation_bar";
     private static final String KEY_SWAP_NAVIGATION_KEYS   = "swap_navigation_keys";
-    private static final String KEY_SWAP_SLIDER_ORDER      = "swap_slider_order";
+//    private static final String KEY_SWAP_SLIDER_ORDER      = "swap_slider_order";
     private static final String KEY_BUTTON_BRIGHTNESS      = "button_brightness";
 
     private static final String KEY_HOME_LONG_PRESS        = "home_key_long_press";
@@ -87,7 +87,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
 
     private int mDeviceHardwareKeys;
 
-    private boolean mHasAlertSlider = false;
+//    private boolean mHasAlertSlider = false;
 
     private ListPreference mHomeLongPressAction;
     private ListPreference mHomeDoubleTapAction;
@@ -104,7 +104,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
 
     private SwitchPreference mNavigationBar;
     private SwitchPreference mSwapNavigationkeys;
-    private SwitchPreference mSwapSliderOrder;
+//    private SwitchPreference mSwapSliderOrder;
     private SwitchPreference mButtonBrightness;
 
     @Override
@@ -122,9 +122,9 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
         mDeviceHardwareKeys = res.getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
 
-        mHasAlertSlider = res.getBoolean(com.android.internal.R.bool.config_hasAlertSlider)
+/*        mHasAlertSlider = res.getBoolean(com.android.internal.R.bool.config_hasAlertSlider)
                 && !TextUtils.isEmpty(res.getString(com.android.internal.R.string.alert_slider_state_path))
-                && !TextUtils.isEmpty(res.getString(com.android.internal.R.string.alert_slider_uevent_match_path));
+                && !TextUtils.isEmpty(res.getString(com.android.internal.R.string.alert_slider_uevent_match_path));*/
 
         /* Navigation Bar */
         mNavigationBar = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR);
@@ -144,7 +144,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
         }
 
         /* Swap Slider order */
-        mSwapSliderOrder = (SwitchPreference) findPreference(KEY_SWAP_SLIDER_ORDER);
+/*        mSwapSliderOrder = (SwitchPreference) findPreference(KEY_SWAP_SLIDER_ORDER);
         if (mSwapSliderOrder != null) {
             if (mHasAlertSlider) {
                 mSwapSliderOrder.setOnPreferenceChangeListener(this);
@@ -153,7 +153,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
                 removePreference(KEY_SWAP_SLIDER_ORDER);
             }
         }
-
+*/
         /* Button Brightness */
         mButtonBrightness = (SwitchPreference) findPreference(KEY_BUTTON_BRIGHTNESS);
         if (mButtonBrightness != null) {
@@ -346,8 +346,8 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
             return Settings.System.NAVIGATION_BAR_ENABLED;
         } else if (preference == mSwapNavigationkeys) {
             return Settings.System.SWAP_NAVIGATION_KEYS;
-        } else if (preference == mSwapSliderOrder) {
-            return Settings.System.ALERT_SLIDER_ORDER;
+//        } else if (preference == mSwapSliderOrder) {
+//            return Settings.System.ALERT_SLIDER_ORDER;
         } else if (preference == mButtonBrightness) {
             return Settings.System.BUTTON_BRIGHTNESS_ENABLED;
         } else if (preference == mHomeLongPressAction) {
@@ -397,8 +397,8 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
         final boolean swapNavigationkeysEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.SWAP_NAVIGATION_KEYS, 0, UserHandle.USER_CURRENT) != 0;
 
-        final boolean swapSliderOrderEnabled = Settings.System.getIntForUser(resolver,
-                Settings.System.ALERT_SLIDER_ORDER, 0, UserHandle.USER_CURRENT) != 0;
+//        final boolean swapSliderOrderEnabled = Settings.System.getIntForUser(resolver,
+//                Settings.System.ALERT_SLIDER_ORDER, 0, UserHandle.USER_CURRENT) != 0;
 
         final boolean buttonBrightnessEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.BUTTON_BRIGHTNESS_ENABLED, 1, UserHandle.USER_CURRENT) != 0;
@@ -414,9 +414,9 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
                     || hasBack && hasAppSwitch);
         }
 
-        if (mSwapSliderOrder != null) {
-            mSwapSliderOrder.setChecked(swapSliderOrderEnabled);
-        }
+//        if (mSwapSliderOrder != null) {
+//            mSwapSliderOrder.setChecked(swapSliderOrderEnabled);
+//        }
 
         if (mButtonBrightness != null) {
             mButtonBrightness.setChecked(buttonBrightnessEnabled);
